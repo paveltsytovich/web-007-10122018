@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Лаб 1</title>
+	<script type="text/javascript">
+	/*var n = 100;
+	var s = n + " bottles of beer on the wall."
+	alert(s)
+	var s = n + ""
+	alert(s)
+	var n = 17;
+	bin_Str = n.toString(2);
+	alert(bin_Str)*/
+	var n = 123456.789;
+	c = n.toFixed(0);
+	d = n.toFixed(2);
+	f = n.toPrecision(2);
+	g = n.toPrecision(4);
+	e = n.toFixed(1);
+	/*alert(d);*/
+	var product = "21" * "2";
+	/*alert(typeof(product));*/
+	string_value = "12f";
+	/*var number = string_value - 0;*/
+	/*alert(number);*/
+    /*alert(Number("5"));*/
+    /*alert(parseInt("3 blind mice"));
+    alert(parseFloat("3.14 meters"));
+    alert(parseInt("12.34"));
+    alert(parseInt("0xFF"));
+    alert(parseInt("11",2));
+    alert(parseInt("ff",16));
+    alert(parseInt("zz",36));
+    alert(parseInt("077",8));
+    alert(parseInt("077",10));
+    alert(parseInt("eleven"));
+    alert(parseInt("$72.47"));*/
+    /*alert(Boolean(undefined));*/
+    document.write(Boolean(null) + "<br/>");
+    document.write(Boolean("aaa")+ "<br/>");
+    document.write(Boolean(7)+ "<br/>");
+    document.write(Boolean(0)+ "<br/>");
+    document.write(Boolean(Infinity)+ "<br/>");
+    document.write(Boolean({a : 5})+ "<br/>");
+    document.write(Boolean(!5)+ "<br/>");
+    var n = 1;
+    var m = n;
+    function add_to_total(total, x)
+    {
+      total = total + x;
+    }
+    document.write( ",m="+ m +",n=" + n + "<br/>");
+    var xmas = new Date(2007, 11, 25);
+    var solstice = xmas;
+    solstice.setDate(21);
+    xmas.getDate( );
+    document.write(xmas == solstice + "<br/>");
+    var xmas = new Date(2007, 11, 25);
+    var solstice_plus_4 = new Date(2007, 11, 25);
+    document.write(xmas != solstice_plus_4 + "<br/>");
+        </script>
+</head>
+<body>
+
+</body>
+</html>

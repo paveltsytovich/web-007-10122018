@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>this is lab 31</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var n= 123456.789;
+		document.write("a. " + n.toFixed(0));
+        document.write('<br>');
+		document.write("b. " + n.toFixed(2) + "\n");
+		document.write('<br>');
+        document.write("c. " + n.toExponential(1) + "\n");	
+        document.write('<br>');
+		document.write("d. " + n.toExponential(3) + "\n");	
+        document.write('<br>');
+		document.write("e. " + n.toExponential(3) + "\n");
+        document.write('<br>');
+		document.write("f. " + n.toFixed(1));
+		var product = "21" * "2";
+		document.write(typeof(product));
+        document.write('<br>');
+		document.write(product);
+		var string_value = "123";
+		var number = string_value - 0;
+		document.write(typeof(number));
+        document.write('<br>');
+		document.write(number);
+		var another_numner = Number(string_value);
+		document.write(typeof(another_numner));
+        document.write('<br>');
+		document.write(another_numner);
+        document.write('<br>');
+		document.write(parseInt("3 blind mice")); //3
+        document.write('<br>');
+		document.write(parseFloat("3.14 meters")); //3.14
+        document.write('<br>');
+		document.write(parseInt("12.34")); //12
+        document.write('<br>');
+		document.write(parseInt("0xFF")); //255
+        document.write('<br>');
+		document.write(parseInt("11", 2)); //3 
+        document.write('<br>');
+		document.write(parseInt("ff", 16)); //255
+        document.write('<br>');
+		document.write(parseInt("zz", 36)); //1295
+        document.write('<br>');
+		document.write(parseInt("077", 8)); //63
+        document.write('<br>');
+		document.write(parseInt("077", 10)); //77
+        document.write('<br>');
+		document.write(parseInt("eleven")); //NaN
+        document.write('<br>');
+		document.write(parseFloat("$72.47")); //NaN
+		var x;
+		document.write(Boolean(x)); //false
+        document.write('<br>');
+		x = null;
+		document.write(Boolean(x)); //false
+        document.write('<br>');
+		x = "aaa";
+		document.write(Boolean(x)); //true
+        document.write('<br>');
+		x = 7;
+		document.write(Boolean(x)); //true
+        document.write('<br>');
+		x = 0;
+		document.write(Boolean(x)); //false
+        document.write('<br>');
+		x = Infinity;
+		document.write(Boolean(x)); //true
+        document.write('<br>');
+		var n = 1;
+		var m = n;
+		function add_to_total(total, x) {
+			total = total + x;
+		}
+		add_to_total(n, m);
+		document.write(n); //1
+        document.write('<br>');
+		document.write(m); //1
+		var xmas = new Date(2007, 11, 25);
+		var solstice = xmas;
+		solstice.setDate(21);
+		xmas.getDate( );
+		document.write(xmas); //Fri Dec 21 2007 00:00:00 GMT+0300 (RTZ 2 (зима))
+        document.write('<br>');
+		xmas == solstice;
+		document.write(xmas); //Fri Dec 21 2007 00:00:00 GMT+0300 (RTZ 2 (зима))
+        document.write('<br>');
+		var xmas = new Date(2007, 11, 25);
+		var solstice_plus_4 = new Date(2007, 11, 25);
+		xmas != solstice_plus_4;
+		document.write(xmas); //Tue Dec 25 2007 00:00:00 GMT+0300 (RTZ 2 (зима))
+	</script>
+</body>
+</html>
