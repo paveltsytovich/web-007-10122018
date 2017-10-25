@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Javascript sample</title>
+</head>
+<body>
+
+<script>
+ for(var i = 0; i < 2; i++)
+  alert("!");
+</script>
+<script defer src="extern.js"></script>
+<script defer src="second.js"></script>
+<script defer src="core.js"></script>
+<h1> Document complete</h1>
+<script>
+
+alert(1 / 0);
+alert(-1 / 0);
+alert(0 / 0);
+if(NaN === NaN)
+ alert("==");
+else
+ alert("!=");
+ var n = NaN;
+ alert(n+1);
+ 
+ if(n !== n)
+  alert("Is NAN");
+ if(isNaN(n))
+  alert("IS NAN IN FUNCTION");
+  
+ if( !isFinite(1/0))
+  alert("Infinity");
+  
+  var x = 0;
+  if(x)
+   alert("true");
+  else
+   alert("false");
+  var s = "false";
+if(s)
+  alert("true");
+else
+ alert("false");  
+var v = "";
+if(v)
+ alert("true");
+else 
+ alert("false"); 
+ 
+ function MakeIt()
+ {
+  alert("MakeIt call");
+ }
+ 
+ MakeIt();
+ 
+ var pow = function(x) { return x * x;}
+ 
+ alert(pow(2));
+ 
+ function LargeJob(callback)
+ {
+   for(var i = 0; i < 1000; i++)
+    document.write(".");
+	if(callback)
+  	   callback(4);
+ }
+ 
+ var complete = function (x) { alert("Complete!"+x);}
+ LargeJob(
+ function (x) { alert("Complete!"+x);}
+ );
+ LargeJob(complete);
+ LargeJob(null);
+ 
+ var n = 2;
+ alert(n);
+ 
+ n = undefined;
+ alert(n);
+</script>
+</body>
+</html>
