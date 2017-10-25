@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>Lab 4-2</title>
+</head>
+<script>
+    scope = "global";
+
+    function checkscope() {
+        scope = "local";
+        document.write(scope);
+        document.write('<br>');
+        myscope = "local";
+        document.write(myscope);
+        document.write('<br>');
+    }
+    checkscope();
+    document.write(scope);
+    document.write('<br>');
+    document.write(myscope);
+    document.write('<br>');
+
+    var scope2 = "global scope";
+
+    function checkscope2() {
+        var scope2 = "local scope";
+
+        function nested() {
+            var scope2 = "nested scope";
+            document.write(scope2);
+            document.write('<br>');
+        }
+        nested();
+    }
+    checkscope2();
+
+    const a = [1, 2, 3];
+
+    a[0] = 99;
+
+    try {
+        a = [2, 3];
+    } catch (error) {
+        document.write(error);
+    }
+</script>
+
+</html>
+
+<body>
+
+</body>
