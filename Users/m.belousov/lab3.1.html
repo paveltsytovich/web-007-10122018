@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Lab3.1</title>
+</head>
+<body>
+<script>
+//part 1
+//n = 100;
+//var s1 = n + " bottles of beer on the wall.";
+//alert(s1);
+//var s2 = n + "";
+//alert(typeof  s2);
+//var s3 = String(n);
+//alert(typeof s3);
+//alert("s4 = " + typeof n.toString(5));
+//alert("s4.1 = " + typeof typeof n.toString(5));
+//var n2 = 17;
+//binary_string = n2.toString(16);
+//alert(binary_string);
+//var n3 = 123456.789;
+//
+//alert("a = " + n3.toFixed());
+//alert("b = " + n3.toFixed(2));
+
+//part 2
+//1
+var product = "21" * "2"
+document.write("product type " + typeof product + "<br/>")
+//2
+var string_value = "300"
+var number = string_value - 0;
+document.write("number type " + typeof number + "<br/>")
+//3
+var stringValue = "300"
+var s3 = Number(stringValue)
+document.write("s3 type " + typeof s3 + "<br/>")
+document.write( "3 blind mice, result = " + parseInt("3 blind mice") + "<br/>" + 
+ "3.14 meters, result = " + parseFloat("3.14 meters") + "<br/>" + 
+ "12.34, result = " + parseInt("12.34") + "<br/>" + 
+ "0xFF, result = " + parseInt("0xFF") + "<br/>" + 
+ "11, 2, result = " + parseInt("11", 2) + "<br/>" + 
+ "ff, 16, result = " + parseInt("ff", 16) + "<br/>" + 
+ "zz, 36, result = " + parseInt("zz", 36) + "<br/>" + 
+ "077, 8, result = " + parseInt("077", 8) + "<br/>" + 
+ "077, 10, result = " + parseInt("077", 10) + "<br/>" + 
+ "eleven, result = " + parseInt("eleven") + "<br/>" + 
+ "$72.47, result = " + parseFloat("$72.47") + "<br/>" 
+);
+// part 3
+document.write("<br/>" + "part 3" + "<br/>")
+document.write(
+"x = undefined  " + Boolean(undefined) + "<br/>" + 
+"x = null  " + Boolean(null) + "<br/>" + 
+"x = \"aaa\"  " + Boolean("aaa") + "<br/>" + 
+"x = 7  " + Boolean(7) + "<br/>" + 
+"x = 0  " + Boolean(0) + "<br/>" + 
+"x = Infinity  " + Boolean(Infinity) + "<br/>" + 
+"x = {}  " + Boolean({}) + "<br/>" + 
+"x = NaN  " + Boolean(NaN)
+)
+
+// part 4
+document.write("part 4"  + "<br/>")
+var n = 1;
+var m = n;
+function add_to_total(total, x)
+{
+ total = total + x;
+}
+add_to_total(n, m);
+document.write("n = " + n + ", m = " + m)
+
+// part 5
+document.write("<br/>" + "part 5"  + "<br/>")
+var xmas = new Date(2007, 11, 25);
+var solstice = xmas;
+solstice.setDate(21);
+xmas.getDate();
+document.write("step 4 xmas = " + xmas + "<br/>")
+document.write(xmas == solstice)
+document.write("<br/>")
+var xmas = new Date(2007, 11, 25);
+var solstice_plus_4 = new Date(2007, 11, 25);
+document.write(xmas != solstice_plus_4)
+
+
+</script>
+</body>
+</html>
+
