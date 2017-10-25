@@ -67,10 +67,30 @@ document.write(parseInt("$77.45") + "<br/>");
 
 
 
-var x = 1;
-document.write(x==true  + "<br/>"); //WHY??
-alert(Boolean(x));
+//var x = 1;
+//document.write(x==true + "<br/>"); //WHY??
+//alert(Boolean(x));
 
+
+/*
+var n = 1;
+var m = n;
+function add_to_total(total,x)
+{
+	total = total + x;
+}
+add_to_total(m,n);
+alert(m + "  " + n);
+*/
+
+var xmas = new Date(2007, 11, 25);
+var solstice = xmas;
+solstice.setDate(21);
+xmas.getDate( );
+alert(xmas);
+var xmas = new Date(2007, 11, 25);
+var sol_plus_4 = new Date(2007, 11, 25);
+alert(xmas != sol_plus_4);
 
 </script>
 </body>
