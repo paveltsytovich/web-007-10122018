@@ -62,9 +62,13 @@
 		alert(m); //1
 
 		var xmas = new Date(2007, 11, 25);
+		alert (xmas);
 		var solstice = xmas;
+		alert (solstice);
 		solstice.setDate(21);
+		alert(solstice);
 		xmas.getDate( );
+		alert(xmas);
 		alert(xmas); //Fri Dec 21 2007 00:00:00 GMT+0300 (RTZ 2 (зима))
 		xmas == solstice;
 		alert(xmas); //Fri Dec 21 2007 00:00:00 GMT+0300 (RTZ 2 (зима))
@@ -72,6 +76,11 @@
 		var solstice_plus_4 = new Date(2007, 11, 25);
 		xmas != solstice_plus_4;
 		alert(xmas); //Tue Dec 25 2007 00:00:00 GMT+0300 (RTZ 2 (зима))
+
+		var x = 1;
+		alert(Boolean(x));
+		alert(Boolean(!x));
+		alert(Boolean(!!x));
 	</script>
 </body>
 </html>
