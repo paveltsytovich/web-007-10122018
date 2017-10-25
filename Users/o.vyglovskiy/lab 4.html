@@ -1,0 +1,47 @@
+<script>
+/*scope = "global"; 
+function checkscope( ) {
+scope = "local"; 
+document.write(scope); 
+myscope = "local"; 
+document.write(myscope); 
+}
+checkscope( ); 
+document.write(scope); 
+document.write(myscope);
+//locallocallocall
+
+scope = "global"; 
+function checkscope( ) {
+let scope = "local"; 
+document.write(scope); 
+let myscope = "local"; 
+document.write(myscope); 
+}
+checkscope( ); 
+document.write(scope); 
+document.write(myscope);
+//locallocalglobal
+
+var scope = "global scope"; 
+function checkscope( ) {
+var scope = "local scope"; 
+function nested( ) {
+var scope = "nested scope"; 
+document.write(scope); 
+}
+nested( );
+}
+checkscope( );*/
+//nested scopeglobal
+
+var a =[1,2,3];
+function test() {
+var b = a;
+}
+test()
+a[1]=5
+test()
+alert(b) //1,5,3
+
+</script>
