@@ -1,0 +1,24 @@
+<html>
+<body>
+<head>Decimal to Binary</head>
+<script>
+
+function DtoB(n) 
+{
+var b = "";
+var bit = 1;
+
+while( n >= bit ) 
+	{
+	b = ( n & bit ? 1 : 0 ) + b;
+	bit <<= 1;
+	}
+
+return b || "0";
+}
+
+alert(DtoB(3));
+
+</script>
+</body>
+</html>
