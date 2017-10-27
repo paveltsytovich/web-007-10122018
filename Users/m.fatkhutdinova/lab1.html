@@ -69,48 +69,48 @@ document.write("kk: " + kk + "<br \/>" );
 
 document.write("<br \/>" + 'Часть 3');
 
- /*
+/*
 x = Undefined;
 k1 = Boolean(x);
-//k11 = x!!;
-document.write(x + ' ' + k1 + "<br \/>" );
-//alert(k11);
+k11 = !!x;
+document.write(x + ' ' + k1 + "<br \/>" + k11 + "<br \/>");
+
 
 x = null;
 k1_1 = Boolean(x);
-//k11_1 = x!!;
-document.write(x + ' ' + k1_1 + "<br \/>"  ); //' ' + k11_1);
+//k11_1 = !!x;
+document.write(x + ' ' + k1_1 + ' ' + k11_1 + "<br \/>");
 
 */
 
 var x = 'aaa';
 k2 = Boolean(x);
-//k22 = x!!;
-document.write("<br \/>" + x + " " + k2 + "<br \/>"); //' ' + k22);
+k22 = !!x;
+document.write("<br \/>" + x + " " + k2 + "<br \/>" + ' ' + k22 + "<br \/>");
  
 
  x = 7;
  k3 = Boolean(x);
- //k33 = x!!;
- document.write(x + ' ' + k3 + "<br \/>");
+ k33 = !!x;
+ document.write(x + ' ' + k3 + "<br \/>" + ' ' + k33 + "<br \/>");
  
 
  x = 0;
  k4 = Boolean(x);
- //k44 = x!!;
- document.write(x + ' ' + k4 + "<br \/>");
+ k44 = !!x;
+ document.write(x + ' ' + k4 + "<br \/>" + ' ' + k44 + "<br \/>");
  
 
  x = Infinity;
  k5 = Boolean(x);
- //k55 = x!!;
- document.write(x + ' ' + k5 + "<br \/>");
+ k55 = !!x;
+ document.write(x + ' ' + k5 + "<br \/>" + ' ' + k55 + "<br \/>");
  
 
  x = new Object();
  k6 = Boolean(x);
- //k66 = x!!;
- document.write(x + ' ' + k6 + "<br \/>"); 
+ k66 = !!x;
+ document.write(x + ' ' + k6 + "<br \/>" + ' ' + k66 + "<br \/>"); 
 
  document.write("<br \/>" + 'Часть 4' + "<br \/>");
  
