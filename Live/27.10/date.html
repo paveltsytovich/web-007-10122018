@@ -1,0 +1,22 @@
+<script>
+
+var now = new Date();
+var yesterday = new Date("2017-10-26");
+//var yesterday = new Date("26/10/2017");
+var today = new Date(now.getFullYear(),now.getMonth(), now.getDay()).valueOf();
+var other = today - 86400000;
+alert(yesterday);
+if( now > other)
+ {
+   alert("ok");
+ }
+else 
+    alert("No");
+
+if(now > yesterday)
+ {
+   alert("Ok");
+ }
+else
+    alert("No");
+</script>
