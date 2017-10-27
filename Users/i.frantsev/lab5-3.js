@@ -56,15 +56,23 @@
 //         break;
 // }
 
-var x = 64;
+var x = -4;
 console.log(x.toString(2));
 
-var t = x / 2 + x % 2;
 var str = "";
+var z = "";
 
 while (1) {
+
+    if (x < 0) {
+        x = x * (-1);
+        z = "-"
+    }
+
     str = (x & 1) + str;
     x = x >> 1;
+
     if (x == 0) break;
 }
-console.log(str);
+
+console.log(z + str);
