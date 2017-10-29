@@ -1,0 +1,144 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+
+var n = 100;
+var s = n + " bottles of beer on the wall.";
+var s2 = n + " ";
+var s3 = String(n);
+var s4 = s.toString();
+
+
+var n = 17;
+binary_string = n.toString(2);
+
+document.write("s: " + s + "<br \/>");
+document.write("s2: " + s2 + "<br \/>");
+document.write("s3: " + s3 + "<br \/>" ); 
+document.write("s4: " + s4 + "<br \/>" ); 
+
+
+n1 = 123456.789;
+a = n1.toFixed();
+b = n1.toFixed();
+c = n1.toExponential(1);
+d = n1.toExponential(3);
+e = n1.toExponential(3);
+f = n1.toPrecision(7);
+
+document.write("a: " + a + "<br \/>");
+document.write("b: " + b + "<br \/>");
+document.write("c: " + c + "<br \/>" ); 
+document.write("d: " + d + "<br \/>" ); 
+document.write("e: " + e + "<br \/>" ); 
+document.write("f: " + f + "<br \/>" ); 
+
+document.write("<br \/>" + "Часть 2" + "<br \/>");
+var product = "21" * "2";
+
+var number = "string_value" - 0;
+
+document.write("product: " + product + "<br \/>");
+document.write("number: "  + number + "<br \/>");
+
+aa = parseInt("3 blind mice");
+bb = parseFloat("3.14 meters");
+cc = parseInt("12.34");
+dd = parseInt("0xFF"); 
+ee = parseInt("11", 2);
+ff = parseInt("ff", 16);
+gg = parseInt("zz", 36);
+hh = parseInt("077", 8);
+ii = parseInt("077", 10);
+jj = parseInt("eleven");
+kk = parseFloat("$72.47");
+
+document.write("aa: " + aa + "<br \/>");
+document.write("bb: " + bb + "<br \/>");
+document.write("cc: " + cc + "<br \/>" ); 
+document.write("dd: " + dd + "<br \/>" ); 
+document.write("ee: " + ee + "<br \/>" ); 
+document.write("ff: " + ff + "<br \/>" ); 
+document.write("gg: " + gg + "<br \/>" ); 
+document.write("hh: " + hh + "<br \/>" ); 
+document.write("ii: " + ii + "<br \/>" ); 
+document.write("jj: " + jj + "<br \/>" ); 
+document.write("kk: " + kk + "<br \/>" ); 
+
+document.write("<br \/>" + 'Часть 3');
+
+/*
+x = Undefined;
+k1 = Boolean(x);
+k11 = !!x;
+document.write(x + ' ' + k1 + "<br \/>" + k11 + "<br \/>");
+
+
+x = null;
+k1_1 = Boolean(x);
+//k11_1 = !!x;
+document.write(x + ' ' + k1_1 + ' ' + k11_1 + "<br \/>");
+
+*/
+
+var x = 'aaa';
+k2 = Boolean(x);
+k22 = !!x;
+document.write("<br \/>" + x + " " + k2 + "<br \/>" + ' ' + k22 + "<br \/>");
+ 
+
+ x = 7;
+ k3 = Boolean(x);
+ k33 = !!x;
+ document.write(x + ' ' + k3 + "<br \/>" + ' ' + k33 + "<br \/>");
+ 
+
+ x = 0;
+ k4 = Boolean(x);
+ k44 = !!x;
+ document.write(x + ' ' + k4 + "<br \/>" + ' ' + k44 + "<br \/>");
+ 
+
+ x = Infinity;
+ k5 = Boolean(x);
+ k55 = !!x;
+ document.write(x + ' ' + k5 + "<br \/>" + ' ' + k55 + "<br \/>");
+ 
+
+ x = new Object();
+ k6 = Boolean(x);
+ k66 = !!x;
+ document.write(x + ' ' + k6 + "<br \/>" + ' ' + k66 + "<br \/>"); 
+
+ document.write("<br \/>" + 'Часть 4' + "<br \/>");
+ 
+ var n = 1;
+ var m = n;
+ function add_to_total(total, x)
+ {	
+	total = total + x;
+ 
+ }
+
+document.write(add_to_total(n,m) + "<br \/>");
+
+document.write("<br \/>" + 'Часть 5' + "<br \/>");
+var xmas = new Date(2007, 11, 25);
+var solstice = xmas;
+solstice.setDate(21);
+xmas.getDate();
+document.write("<br \/>" + xmas == solstice);
+document.write("<br \/>");
+
+var xmas = new Date(2007, 11, 25);
+var solstice_plus_4 = new Date (2007, 11, 25);
+xmas != solstice_plus_4 
+ 
+document.write("<br \/>" + xmas != solstice_plus_4);
+
+
+</script>
+</body>
+</html>

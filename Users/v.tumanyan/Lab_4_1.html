@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Laboratory 4</title>
+</head>
+<body>
+
+<script>
+
+ scope = "global scope";
+function checkscope( ) {     
+   var scope = "local scope";
+      function nested( ) {  
+	   scope = "nested scope";   
+	  document.write(scope);     
+	  }     
+   nested( ); 
+   document.write(scope);
+   } 
+checkscope( ); 
+
+
+
+</script>
+</body>
+</html>
