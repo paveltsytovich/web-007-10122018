@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>lab-3-1</title>
+</head>
+<body>
+<script>
+ /*alert("a. null == undefined : " + (null == undefined));
+ alert("b. null === undefined : " + (null === undefined));
+ alert("c. 5 == \"5\" : " + (5 == "5"));
+ alert("c. 5 === \"5\" : " + (5 === "5"));
+ alert("\"true\" == true : " + ("true" == true));
+ alert("1 == true : " + (1 == true));
+ alert("\"1\" == true : " + ("1" == true));
+ alert(1 === true);
+ alert("0" == false);
+ alert("0" === false); */
+ /*
+ var x = { id: 123, name: "Blah" };
+ var y = { id: 456, name: "Not Blah, definitely" }; 
+ alert(x == "[object Object]");
+ alert(y == "[object Object]");
+ alert(x == y);
+ alert(1 != true);
+ alert(0 != false); 
+ alert(5 != "5");*/
+ //var x = new Object();
+ //alert(x != "[object Object]"); //false
+ 
+/*
+var k;
+if (k==null) 
+ { 
+   alert("k must be defined " + k);  
+ }
+;
+
+var k = null; 
+if (k==null) 
+ {    
+   alert("k must be defined " + k); 
+ }
+ ;
+*/
+
+var x = 7;
+for(var i=31;i>=0;i--)
+  {
+    if((x>>i) != 0)
+      {
+	    document.write(x>>i&1);
+	  }
+  };
+/*document.write("</br>");
+var x = 7;
+for(var i=40;i>=0;i--){
+  if((x>>i) != 0){document.write(x>>i&1);
+					}
+};*/
+/*
+document.write(x>>4 & 1);
+document.write(x>>3 & 1);
+document.write(x>>2 & 1);
+document.write(x>>1 & 1);
+document.write(x & 1);*/
+
+ 
+</script>
+</body>
+</html>
