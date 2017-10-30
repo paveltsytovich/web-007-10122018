@@ -1,0 +1,16 @@
+<html>
+<script>
+var o = {
+  secret : 0,
+  get gate () { return this.secret;},
+  set gate(val) { this.secret = val;}
+}
+
+o.secret = 4;
+alert(o.secret);
+o.gate = 5;
+
+alert(o.gate);
+alert(o.secret);
+</script>
+</html>
