@@ -1,0 +1,88 @@
+<html>
+<title>Exercise 1</title>
+<body>
+<script>
+document.write("<br/>" + "Part 1" + "<br/>"+ "<br/>");
+var n = 100;
+document.write("<b>"+"n = 100"+"</b>" + "<br/>");
+var s = n + " bottles of beer on the wall.";
+document.write("1. n + \" bottles of beer on the wall.\" === " + s + ", typeof = " + typeof s + "<br/>");
+var s = n + "";
+document.write("2. n + \"\" === " + s + ", typeof = " + typeof s + "<br/>");
+var s = String(n);
+document.write("3. String(n) === " + s + ", typeof = " + typeof s + "<br/>");
+var s = n.toString();
+document.write("4. n.toString() === " + s + ", typeof = " + typeof s + "<br/>");
+var n = 17;
+document.write("<b>"+"n = 17"+"</b>" + "<br/>");
+binary_string = n.toString(2);
+document.write("5. n.toString(2) === " + binary_string + ", typeof = " + typeof binary_string + "<br/>");
+var n = 123456.789
+document.write("<b>"+"n = 123456.789"+"</b>" + "<br/>");
+var s = n.toFixed();
+document.write("6.a. n.toFixed() === " + s + "<br/>");
+var s = n.toFixed(2);
+document.write("  b. n.toFixed(2) === " + s + "<br/>");
+var s = n.toExponential(1);
+document.write("  c. n.toExponential(1) === " + s + "<br/>");
+var s = n.toExponential(3);
+document.write("  d. n.toExponential(3) === " + s + "<br/>");
+var s = n.toExponential(3);
+document.write("  e. n.toExponential(3) === " + s + "<br/>");
+var s = n.toFixed(1);
+document.write("  f. n.toFixed(2) === " + s + "<br/>");
+
+document.write("<br/>" + "Part 2" + "<br/>"+ "<br/>");
+var product = "21" * "2";
+document.write("1. \"21\" * \"2\" === " + product + ", typeof = " + typeof(product) + "<br/>");
+var string_value = "123";
+var number = string_value - 0;
+document.write("2. \"123\" - 0 === " + number + ", typeof = " + typeof(number) + "<br/>");
+var number = Number(string_value);
+document.write("3. Number(\"123\") === " + number + ", typeof = " + typeof(number) + "<br/>");
+document.write("4.a. 3 blind mice, result = " + parseInt("3 blind mice") + "<br/>"); 
+document.write("b. parseInt(\"3.14 meters\") = " + parseFloat("3.14 meters") + "<br/>");
+document.write("c. parseInt(\"12.34\") = " + parseInt("12.34") + "<br/>"); 
+document.write("d. parseInt(\"0xFF\") = " + parseInt("0xFF") + "<br/>");
+document.write("e. parseInt(\"11, 2\") = " + parseInt("11", 2) + "<br/>"); 
+document.write("f. parseInt(\"ff, 16\") = " + parseInt("ff", 16) + "<br/>"); 
+document.write("g. parseInt(\"zz, 36\") = " + parseInt("zz", 36) + "<br/>");
+document.write("h. parseInt(\"077, 8\") = " + parseInt("077", 8) + "<br/>");
+document.write("i. parseInt(\"077, 10\") = " + parseInt("077", 10) + "<br/>"); 
+document.write("j. parseInt(\"eleven\") = " + parseInt("eleven") + "<br/>"); 
+document.write("k. parseInt(\"$72.47\") = " + parseFloat("$72.47") + "<br/>"); 
+
+document.write("<br/>" + "Part 3" + "<br/>"+ "<br/>");
+document.write("1. Boolean(undefined) = " + Boolean(undefined) + "<br/>");
+document.write("2. Boolean(null) = " + Boolean(null) + "<br/>");
+document.write("3. Boolean(\"aaa\") = " + Boolean("aaa") + "<br/>");
+document.write("4. Boolean(7) = " + Boolean(7) + "<br/>");
+document.write("5. Boolean(0) = " + Boolean(0) + "<br/>");
+document.write("6. Boolean(Infinity) = " + Boolean(Infinity) + "<br/>");
+document.write("7. Boolean({}) = " + Boolean({}) + "<br/>");
+document.write("8. Boolean(NaN) = " + Boolean(NaN));
+
+document.write("<br/>" + "Part 4" + "<br/>"+ "<br/>");
+var n = 1; 
+var m = n; 
+function add_to_total(total, x)
+{
+total = total + x;
+}
+add_to_total(n, m);
+document.write("n = " + n);
+document.write("m = " + m);
+
+document.write("<br/>" + "Part 5" + "<br/>"+ "<br/>");
+var xmas = new Date(2007, 11, 25);
+var solstice = xmas; 
+solstice.setDate(21);
+document.write("1. " + xmas.getDate( )); 
+xmas == solstice
+document.write("2. " + xmas); 
+var xmas = new Date(2007, 11, 25);
+var solstice_plus_4 = new Date(2007, 11, 25);
+xmas != solstice_plus_4
+</script>
+</body>
+</html>
