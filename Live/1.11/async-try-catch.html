@@ -1,0 +1,25 @@
+<script>
+
+function func()
+{
+  document.write("<h1>!!!</h1>");
+  throw new Error("Ooops");
+}
+window.onerror = function(message,url,linenumber)
+{
+  alert(message);
+}
+
+//func();
+
+try
+{
+  setTimeout(func,2000);
+  document.write("done");
+}
+
+catch(e)
+{
+ alert("Catched!!!");
+}
+</script>
