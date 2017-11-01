@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+
+// часть 1
+try {
+	alert(variable);
+}
+catch (ex) {
+	alert(ex);
+}
+alert("Here");
+
+// часть 2
+function f() {
+	try {
+		throw 1;
+	} catch(ex) {
+		return 2;
+	} finally {
+		alert("Here!");
+	}
+}
+alert(f());
+
+// часть 3
+var age = prompt("Введите ваш возраст");
+
+function getAge() {
+	try {
+	if (18< age >50) {
+		alert("Error!")
+	}
+	} catch(ex) {
+		return 2;
+	} finally {
+		alert("Here!");
+	}
+}
+
+
+</script>
+</body>
+</html>

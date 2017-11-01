@@ -1,0 +1,110 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+
+document.write("Часть 1" + "<br \/>");
+a = new Object();
+document.write(a.prop + "<br \/>");
+
+//alert(nosuchprop);
+
+document.write("<br \/>" + "Часть 2" + "<br \/>");
+obj = new Object();
+obj.prop = 'Это свойство!';
+document.write(obj.prop + ' ' + obj.hasOwnProperty('prop')); 
+ 
+delete obj.prop;
+document.write("<br \/>" + "Удалили: " + obj.hasOwnProperty('prop') + "<br \/>"); 
+
+document.write("<br \/>" + "Часть 3" + "<br \/>");
+
+a = new Array({"attr1":"text1","attr2":"text2"}, {"attr1":"text3","attr2":"text4"});
+
+
+document.write("<br \/>" + "Часть 4" + "<br \/>");
+var a = [];
+a[1] = 1;
+a[999999] = 2;
+
+document.write('Length: ' + a.length + "<br \/>");
+
+a[a.length] = "new element";
+document.write(a.push("new element") + "<br \/>");
+document.write("Last element: " + a.pop() + "<br \/>");
+document.write('New Length: ' + a.length + "<br \/>");
+
+a.length = 0;
+document.write('Length: ' + a.length + "<br \/>");
+
+
+document.write("<br \/>" + "Часть 5" + "<br \/>");
+var arr = [];
+arr[1] = 123;
+arr[9999] = 456;
+
+for (i in arr)
+{
+	document.write(arr[i] + ' ');
+}
+
+document.write("<br \/>" + arr.hasOwnProperty([1]) + " " + arr.hasOwnProperty([9999]) + "<br \/>");
+
+document.write("<br \/>" + "Часть 6" + "<br \/>");
+var arr1 = [1,2,3];
+var arr2 = [10,5,1];
+
+j = arr1.join(arr2);
+document.write("join:  " + j + "<br \/>");
+
+document.write("Reverce:  " + arr1 + ' --> ' + arr1.reverse() + "<br \/>");
+
+arr2.sort();
+document.write("Sort:  " + arr2 + "<br \/>");  // Не работает
+
+document.write("Slice:  " + arr1 + ' --> ' + arr1.slice(2,3) + "<br \/>"); 
+
+arr2.splice(2,1, 100);
+document.write("Splice: " + arr2 + "<br \/>"); 
+
+arr1.unshift(22);
+document.write("Unshift:  " + arr1 + "<br \/>"); 
+
+
+document.write("<br \/>" + "Часть 7" + "<br \/>");
+a = new Array();
+a[-2]=-2;
+a[-1]=-1;
+a[0]=0;
+a[1]=1;
+a[2]=2;
+
+alert("Length: " + a.length);
+for (var i=0; i<a.length; i++) {
+	alert(a[i]);
+}
+alert(a[a[-2]+a[1]]);
+alert(a[3]);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
