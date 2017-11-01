@@ -18,76 +18,36 @@ function check_array(arr)
 		var prev_type = ""
 		for (var i = 0; i < arr.length; i++) {
 			cur_type = typeof arr[i]
-			document.write(cur_type + "<br/>" )
+			//document.write(cur_type + "<br/>" )
 			if (i > 0 && cur_type != prev_type) {
-				document.write("Bad array!<br/>")
+				//document.write("Bad array!<br/>")
+				throw new Error("Bad array!")
 				break }
 			else {
 				prev_type = cur_type
 			}
 		};
+		document.write("Good<br/>")
 	}
 	else {
-		document.write("Not array!<br/>")
+		//document.write("Not array!<br/>")
+		throw new Error("Not array!")
 	}
 	//throw new Error("Oops")
 }
 
-x = [1,2,Date,4,5,6]
-check_array(x)
-/*
-try
-{
-	setTimeout(func,2000)
-	//throw new Error("Oops")
-	document.write("done<br/>")
-	document.write("<br/>")
+
+try {
+	var x = 1 //[1,2,3,4,5,6]
+	check_array(x)
 }
 catch(e)
 {
-	if (e.name == "ReferenceError")
-		alert("error " + e);
-	else
-		document.write(e)
+	alert(e)
 }
-finally
-{
-	document.write("The End of Code")
-}
-*/
-document.write( "<br/>" + "<br/>" + "<br/>" )
-
-document.write( "<br/>" + "<br/>" + "<br/>" )
-
-
 
 
 document.write( "<br/>" + "<br/>" + "<br/>" )
-
-
-/*
-document.write(
-"a. alert(null == undefined); = " + (null == undefined) + "<br/>" + 
-"b. alert(null === undefined); = " + (null === undefined) + "<br/>" + 
-"c. alert(5 == \"5\"); = " + (5 == "5") + "<br/>" + 
-"d. alert(5 === \"5\"); = " + (5 === "5") + "<br/>" + 
-"e. alert(\"true\" == true); = " + ("true" == true) + "<br/>" + 
-"f. alert(1 == true); = " + (1 == true) + "<br/>" + 
-"g. alert(\"1\" == true); = " + ("1" == true) + "<br/>" + 
-"h. alert(1 === true); = " + (1 === true) + "<br/>" + 
-"i. alert(\"0\" == false); = " + ("0" == false) + "<br/>" + 
-"j. alert(\"0\" === false); = " + ("0" === false) + "<br/>" + 
-"m. alert(x == \"[object Object]\"); = " + (x == "[object Object]") + "<br/>" + 
-"n. alert(y == \"[object Object]\"); = " + (y == "[object Object]") + "<br/>" + 
-"o. alert(x == y); = " + (x == y) + "<br/>" + 
-"p. alert(1 != true); = " + (1 != true) + "<br/>" + 
-"q. alert(0 != false); = " + (0 != false) + "<br/>" + 
-"r. alert(5 != \"5\"); = " + (5 != "5") + "<br/>" + 
-"t. alert(xo != \"[object Object]\"); = " + (xo != "[object Object]") + "<br/>"
-)
-
-document.write( "<br/>" + "<br/>" + "<br/>" )
-*/
 
 </script>
 </body>
