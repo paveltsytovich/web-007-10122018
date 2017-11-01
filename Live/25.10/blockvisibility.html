@@ -1,18 +1,0 @@
-<script>
-function test(o) {
-    // i is defined throughout function    var i = 0;                         i
- if (typeof o == "object") {
-        // j is defined everywhere, not just block        
-    var j = 0;                     
-        // k is defined everywhere, not just loop        
-    for(var k = 0; k < 10; k++) {  
-            document.write(k);
-        }        
-    document.write(k); // k is still defined: prints 10    
-  }   
-document.write(j); // j is defined, but may not be initialized
-}
-
-test(2);
-
-</script>
