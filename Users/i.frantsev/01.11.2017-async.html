@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <script>
+        function test() {
+            document.write("123<br>");
+            throw new Error("Err")
+        }
+        try {
+            setTimeout(test(), 2000);
+            document.write("456<br>");
+        } catch (e) {
+            alert(e);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
