@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>a.s.polyanskiy</title>
+</head>
+<body>
+<script>
+//снятие
+function DebetCard(bal,pin)
+{
+  if(typeof bal != "number" || typeof pin != "number") throw new Error("Please enter valid arguments");
+  var _bal = bal;
+  var _pin = pin;
+  var _authorized = 0;
+  
+  this.Auth = function(pintry)
+    {
+	  if(pintry != _pin) alert("Wrong Pin");
+	  else _authorized = 1;
+	}
+	
+  this.PutMoney = function(money)
+    {
+	  if(_authorized == 0) alert("Please autorize!");
+	  else if(typeof money != "number") alert("Please enter REAL money");
+	  else _bal = _bal + money;
+	}
+	
+  this.GetMoney = function(money)
+    {
+	  if(_authorized == 0) alert("Please autorize!");
+	  else if(typeof money != "number") alert("Please request REAL money");
+	  else if(money <= _bal) _bal = _bal - money;
+	  else alert("Your balance is too low =(");
+	}
+  this.GetBalance = function()
+    {
+	  if(_authorized == 0) alert("Please autorize!");
+	  else alert("Your balance is " + _bal + " Rubles");
+	}
+  
+}
+try
+{
+  var card = new DebetCard(100,1111);//карта 100 рублей; пин = 1111
+  card.Auth(1110);
+  card.GetMoney(5);
+  card.Auth(1111);
+  card.GetMoney(5);
+  card.GetBalance();
+  card.GetMoney(1000);
+  card.GetBalance();
+  card.PutMoney(20);
+  card.GetBalance();
+}
+catch(e)
+{
+  alert(e.message);
+}
+
+
+
+
+</script>
+</body>
+</html>
