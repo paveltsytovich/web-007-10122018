@@ -1,0 +1,15 @@
+<html>
+<script>
+  var o = { title :  "Lesson", date : "2017-10-30"};
+
+  var str = JSON.stringify(o,function(key,value) {
+   if (key == 'date')
+     return undefined;
+   else
+     return value;
+}
+);
+alert(str);
+</script>
+
+</html>

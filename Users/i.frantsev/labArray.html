@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <script>
+        var a = [];
+        a[-1.23] = 1;
+
+        a[0] = 121213;
+        a[10] = 21212;
+
+        document.write("a:" + a.toString());
+        document.write('<br>');
+
+        document.write("lenght:" + a.length);
+        document.write('<br>');
+
+        for (var key in a) {
+            document.write("key:" + key);
+            document.write('<br>');
+
+            document.write("value:" + a[key]);
+            document.write('<br>');
+        }
+
+        document.write('B[]<br>');
+        var b = [...a];
+
+
+
+        for (var key in b) {
+            document.write("key:" + key);
+            document.write('<br>');
+
+            document.write("value:" + b[key]);
+            document.write('<br>');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

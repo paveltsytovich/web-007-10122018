@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Lab 5.3</title>
+</head>
+<body>
+<script>
+
+document.write("<br><br>Part 1<br><br>");
+document.write("a. alert(null == undefined): " + (null == undefined) + "<br>");
+document.write("b. alert(null === undefined): " + (null === undefined) + "<br>");
+
+document.write("c. alert(5 == \"5\"): " + (5 == "5")  + "<br>");
+document.write("d. alert(5 === \"5\"): " + (5 === "5")  + "<br>");
+document.write("e. alert(true == \"true\"): " + (true == "true")  + "<br>");
+document.write("f. alert(true == 1): " + (true == 1)  + "<br>");
+document.write("g. alert(true == \"1\"): " + (true == "1")  + "<br>");
+document.write("h. alert(true === 1): " + (true === 1)  + "<br>");
+document.write("g. alert(false == \"0\"): " + (false == "0")  + "<br>");
+
+var x = { id: 123, name: "Blah" };
+var y = { id: 456, name: "Not Blah, definitely" };
+document.write("m. alert(x == \"[object Object]\"): " + (x == "[object Object]")  + "<br>");
+document.write("n. alert(y == \"[object Object]\"): " + (y == "[object Object]")  + "<br>");
+document.write("o. alert(x == y): " + (x == y)  + "<br>");
+
+var x = new Object();
+document.write("t. alert(x != \"[object Object]\"): " + (x != "[object Object]")  + "<br>");
+
+var k;
+if (k==null)
+{
+  document.write("k must be defined " + k + "<br>");
+}
+
+document.write("<br><br>Part 2<br><br>");
+
+function printx(item, x)
+{
+  document.write(item + ". x = " + x + ", typeof x = " + typeof x + "<br>");
+}
+
+var x = "The answer is " + 42;
+printx("a",x);
+var x = 42 + " is the answer";
+printx("b",x);
+var x = "37" - 7;
+printx("c",x);
+var x = "37" + 7;
+printx("d",x);
+var x = 37 + "7";
+printx("d2",x);
+var x = 1 + 2;
+printx("e",x);
+
+var x = "11" < "3";
+printx("f",x);
+var x = "11" < 3;
+printx("g",x);
+var x = "one" < 3;
+printx("h",x);
+
+var x = 1 + 2 + " blind mice";
+printx("i",x);
+var x = "blind mice: " + 1 + 2;
+printx("j",x);
+
+
+document.write("<br><br>Part 3<br><br>");
+
+var x = 5%3;
+printx("k",x);
+var x = 5.7%3;
+printx("l",x);
+var x = -3.93%2;
+printx("m",x);
+
+</script>
+</body>
+</html>

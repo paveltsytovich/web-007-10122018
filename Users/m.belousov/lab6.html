@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Lab6</title>
+</head>
+<body>
+<script>
+
+// module 6
+var a = {  };
+
+document.write(a.prop);
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+var event = {title : "Lesson", date : "2017-10-30",
+toJSON : function()
+{return '{"name":"' + this.title + '"}'; }
+}
+var str = JSON.stringify(event)
+document.write(str)
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+var o = {title : "Lesson", date : "2017-10-30"}
+var str = JSON.stringify(o, function(key, value){
+	if (key == 'date')
+		return null;
+	else
+		return value;
+}
+	);
+
+document.write(str)
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+document.write("Часть 5. Перебор элементов массива<br/>")
+
+var arr = [];
+arr[-10] = 123;
+document.write(arr.length + "<br/>")
+arr[9999] = 456;
+document.write(arr.length + "<br/>")
+document.write(arr.toString() + "<br/>")
+arr2 = [...arr]
+document.write(arr2.toString() + "<br/>")
+document.write(arr[-10] + "<br/>")
+document.write(arr2[-10] + "<br/>")
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+document.write("Часть 7. Массив – это объект.<br/>")
+
+ a = new Array();
+ a[-2]=-2;
+ a[-1]=-1;
+ a[0]=0;
+ a[1]=1;
+ a[2]=2;
+ document.write("Length: " + a.length + "<br/>");
+ for (var i=0; i<a.length; i++) {
+document.write(a[i] + "<br/>");
+ }
+ document.write(a[a[-2]+a[1]] + "<br/>");
+ document.write(a[3] + "<br/>");
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+document.write("Часть 6. Использование методов массива.<br/>")
+
+var arr11 = [1,2,3];
+var arr21 = [10,5,1];
+
+document.write(arr11.sort() + "<br/>")
+document.write(arr11.reverse() + "<br/>")
+document.write(arr11.splice(2,100) + "<br/>")
+document.write(arr21.sort() + "<br/>")
+document.write(arr21.slice(1) + "<br/>")
+document.write(arr21.unshift(100) + "<br/>")
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+/*
+document.write(
+"a. alert(null == undefined); = " + (null == undefined) + "<br/>" + 
+"b. alert(null === undefined); = " + (null === undefined) + "<br/>" + 
+"c. alert(5 == \"5\"); = " + (5 == "5") + "<br/>" + 
+"d. alert(5 === \"5\"); = " + (5 === "5") + "<br/>" + 
+"e. alert(\"true\" == true); = " + ("true" == true) + "<br/>" + 
+"f. alert(1 == true); = " + (1 == true) + "<br/>" + 
+"g. alert(\"1\" == true); = " + ("1" == true) + "<br/>" + 
+"h. alert(1 === true); = " + (1 === true) + "<br/>" + 
+"i. alert(\"0\" == false); = " + ("0" == false) + "<br/>" + 
+"j. alert(\"0\" === false); = " + ("0" === false) + "<br/>" + 
+"m. alert(x == \"[object Object]\"); = " + (x == "[object Object]") + "<br/>" + 
+"n. alert(y == \"[object Object]\"); = " + (y == "[object Object]") + "<br/>" + 
+"o. alert(x == y); = " + (x == y) + "<br/>" + 
+"p. alert(1 != true); = " + (1 != true) + "<br/>" + 
+"q. alert(0 != false); = " + (0 != false) + "<br/>" + 
+"r. alert(5 != \"5\"); = " + (5 != "5") + "<br/>" + 
+"t. alert(xo != \"[object Object]\"); = " + (xo != "[object Object]") + "<br/>"
+)
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+*/
+
+</script>
+</body>
+</html>
+

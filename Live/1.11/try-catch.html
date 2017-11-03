@@ -1,0 +1,46 @@
+<script>
+
+function MakeIt(x)
+{
+ if(x <= 0)
+   throw new Error("Wrong Argument");
+ return x+2;
+}
+function f()
+{
+  var x = MakeIt(-5);
+  alert("f complete");
+  return x;
+}
+function f1()
+{
+  try
+    {
+      var x = MakeIt(-5);
+      return x;
+    }
+   catch(e)
+     {
+       alert("catch!!!");
+       throw e;
+     }
+   finally
+    {
+   //required code
+     alert("Finished code");
+    }
+}
+try
+ {
+   alert(MakeIt(2));
+   alert(f1());   
+ }
+catch(e)
+ {
+  if(e.name == "ReferenceError")
+   alert("Unknown variable");
+  else
+    alert("Other exception "+ e.message);
+ }
+
+</script>

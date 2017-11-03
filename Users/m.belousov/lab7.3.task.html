@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Lab7.2 array</title>
+</head>
+<body>
+<script>
+
+// module 7
+document.write( "<h1>Lab7.2 - Exceptions - Check array</h1><br/>" )
+
+
+
+function check_array(arr)
+{
+	if (arr instanceof Array) {
+		//document.write("Array<br/>")
+		var cur_type = ""
+		var prev_type = ""
+		for (var i = 0; i < arr.length; i++) {
+			cur_type = typeof arr[i]
+			//document.write(cur_type + "<br/>" )
+			if (i > 0 && cur_type != prev_type) {
+				//document.write("Bad array!<br/>")
+				throw new Error("Bad array!")
+				break }
+			else {
+				prev_type = cur_type
+			}
+		};
+		document.write("Good<br/>")
+	}
+	else {
+		//document.write("Not array!<br/>")
+		throw new Error("Not array!")
+	}
+	//throw new Error("Oops")
+}
+
+
+try {
+	var x = 1 //[1,2,3,4,5,6]
+	check_array(x)
+}
+catch(e)
+{
+	alert(e)
+}
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+</script>
+</body>
+</html>
+

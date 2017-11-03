@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Lab7.2</title>
+</head>
+<body>
+<script>
+
+// module 7
+document.write( "<h1>Lab7.2 - Exceptions</h1><br/>" )
+
+
+
+function func()
+{
+	document.write("func<br/>")
+	throw new Error("Oops")
+}
+
+window.onerror = function(message,url,linenumber)
+{
+	alert(message)
+}
+
+try
+{
+	setTimeout(func,2000)
+	//throw new Error("Oops")
+	document.write("done<br/>")
+	document.write("<br/>")
+}
+catch(e)
+{
+	if (e.name == "ReferenceError")
+		alert("error " + e);
+	else
+		document.write(e)
+}
+finally
+{
+	document.write("The End of Code")
+}
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+/*
+document.write(
+"a. alert(null == undefined); = " + (null == undefined) + "<br/>" + 
+"b. alert(null === undefined); = " + (null === undefined) + "<br/>" + 
+"c. alert(5 == \"5\"); = " + (5 == "5") + "<br/>" + 
+"d. alert(5 === \"5\"); = " + (5 === "5") + "<br/>" + 
+"e. alert(\"true\" == true); = " + ("true" == true) + "<br/>" + 
+"f. alert(1 == true); = " + (1 == true) + "<br/>" + 
+"g. alert(\"1\" == true); = " + ("1" == true) + "<br/>" + 
+"h. alert(1 === true); = " + (1 === true) + "<br/>" + 
+"i. alert(\"0\" == false); = " + ("0" == false) + "<br/>" + 
+"j. alert(\"0\" === false); = " + ("0" === false) + "<br/>" + 
+"m. alert(x == \"[object Object]\"); = " + (x == "[object Object]") + "<br/>" + 
+"n. alert(y == \"[object Object]\"); = " + (y == "[object Object]") + "<br/>" + 
+"o. alert(x == y); = " + (x == y) + "<br/>" + 
+"p. alert(1 != true); = " + (1 != true) + "<br/>" + 
+"q. alert(0 != false); = " + (0 != false) + "<br/>" + 
+"r. alert(5 != \"5\"); = " + (5 != "5") + "<br/>" + 
+"t. alert(xo != \"[object Object]\"); = " + (xo != "[object Object]") + "<br/>"
+)
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+*/
+
+</script>
+</body>
+</html>
+

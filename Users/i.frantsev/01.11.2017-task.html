@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script>
+        var mass = [1, "2", "3"];
+
+        function testArray(value) {
+            if (!Array.isArray(value)) throw new Error("No Array!");
+
+            if (value.length == undefined || value.length == 0) throw new Error("No Elements!");
+
+            for (let e of value) {
+
+                if (typeof e !== 'number') throw new Error("Only Numbers");
+            }
+
+            for (let e of value) {
+
+                document.write(e + "<br>");
+            }
+
+        }
+        try {
+            testArray(1);
+        } catch (e) {
+            console.log(e);
+        }
+
+        try {
+            testArray([]);
+        } catch (e) {
+            console.log(e);
+        }
+
+        try {
+            testArray(mass);
+
+        } catch (e) {
+            console.log(e);
+        }
+        try {
+            testArray([1, 2, 3, 7, 8, 9]);
+
+        } catch (e) {
+            console.log(e);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Laboratory 6</title>
+</head>
+<body>
+
+<script>
+
+function f(x)
+ {
+  if (x<=0)
+   throw new Error("<=0");
+  return x+2;
+ }
+
+function f2()
+ {
+ var x=f(-1);
+ alert("f2");
+ return x;
+ } 
+
+try
+ {
+  alert(f(2));
+  alert(f2(0));
+ }
+catch(e)
+ {
+ //alert(e.message);
+ //alert(e.name);
+ if(e.name=="ReferenceError")
+  alert("1");
+ else 
+  alert(e.message);
+ }
+ 
+</script>
+</body>
+</html>

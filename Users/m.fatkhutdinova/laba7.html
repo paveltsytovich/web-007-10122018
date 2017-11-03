@@ -1,0 +1,61 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+
+
+// сколько денег, самого владдельца.
+//Задча: обеспечить поддержку:
+//снятие наличных, принимает (сколько запросил пользователь).
+//Функия пополнение.
+//Возвращает остатоок
+//Процедура авторизации. В качестве параметра - пинкод (целое число) 
+
+function readPin()
+{
+	var pin = prompt("Введите ваш Пин-код");
+	return (Number(pin));
+}
+
+function debitCard()
+{
+	pin = readPin();
+	var number = 567;	
+	try{	
+		if (pin == number ) {
+			return 1;
+		} else 
+		{
+			throw "O my God! Error!";
+		} 
+	}
+	catch(e)
+	{
+		alert(e);
+	} 
+	
+	
+	this.takeMoney()
+	{	
+		this.money += prompt("Сколько хотите даобавить?");
+		return this.money;
+	}
+	
+	this.getMoney ()
+	{	
+		this.money -= prompt("Сколько хотите снять?");
+		return this.money;
+	}
+	
+	this.showMoney()
+	{
+		return this.money;
+	}
+}
+
+var card = debitCard();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>a.s.polyanskiy</title>
+</head>
+<body>
+<script>
+
+var a = ["1","2","3"];
+var b = [1,2,3];
+var c = [1,2,"3"];
+
+function IsOneType(x)
+{
+  var y = "cocacola";
+  for(var i=0; i < x.length; i++)
+  { 
+    if (y != "cocacola")
+	  {
+	    var f = typeof x[i];
+		if (f != y) 
+		  throw new Error("Different type!");
+	    y = f;
+	  }
+	else 
+	  y = typeof x[i];
+  };
+  return "OK! Array of " + y + "s</br>";
+}
+
+
+try
+{
+  document.write(IsOneType(a));
+  document.write(IsOneType(b));
+  document.write(IsOneType(c));
+}
+catch(e)
+{
+  document.write("Error: " + e.message + "</br>");
+}
+
+
+</script>
+</body>
+</html>

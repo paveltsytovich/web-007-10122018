@@ -1,0 +1,18 @@
+<html>
+<script>
+ 
+var str = '{"title":"sample","date":"2017-10-30"}';
+var arrayStr = '{"events": [ {"title":"sample","date":"2017-10-30"},{"title":"sample","date":"2017-10-29"}]}'; 
+var event = JSON.parse(arrayStr,function(key,value)
+{
+ if(key == 'date')
+   return new Date(value);
+ else
+   return value;
+});
+
+//alert(event.date.getDate());
+alert(event.events[1].date.getDate());
+
+</script>
+</html>

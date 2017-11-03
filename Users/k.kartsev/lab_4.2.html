@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Lab 4.2</title>
+</head>
+<body>
+<script>
+
+document.write("<br><br>Number 1<br><br>");
+
+scope = "global";
+function checkscope()
+{
+  scope = "local";
+  document.write(scope);
+  myscope = "local";
+  document.write(myscope);
+}
+checkscope();
+document.write("<br>");
+document.write("scope = " + scope + "<br>");
+document.write("myscope = " + myscope + "<br>");
+
+document.write("<br><br>Number 2<br><br>");
+
+var scope = "global scope";
+function checkscope2()
+{
+  var scope = "local scope";
+  function nested()
+  {
+    var scope = "nested scope";
+    document.write(scope);
+  }
+  nested();
+}
+checkscope2();
+
+
+</script>
+</body>
+</html>

@@ -25,21 +25,57 @@ function f() {
 }
 alert(f());
 
-// часть 3
-var age = prompt("Введите ваш возраст");
 
-function getAge() {
-	try {
-	if (18< age >50) {
-		alert("Error!")
-	}
-	} catch(ex) {
-		return 2;
-	} finally {
-		alert("Here!");
-	}
+// часть 3
+function readAge()
+{
+	var age = prompt("Введите ваш возраст");
+	return age;
 }
 
+function getAge() {
+	Age = readAge();
+	try{	
+		if (Age > 18 && Age < 90) {
+			return Age;
+		} else 
+		{
+			throw "O my God! Error!";
+		} 
+	}
+	catch(e)
+	{
+		alert(e);
+	} 
+}
+
+alert(getAge());
+
+
+function readMonth()
+{
+	var month = prompt("Введите ваш Месяц");
+	return (Number(month));
+}
+
+function getMonthName() {
+	mo = readMonth() - 1;  
+	months = ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep","Oct","Nov","Dec"];
+	try{	
+		if (mo < 12 && mo >= 0) {
+			return months[mo];
+		} else 
+		{
+			throw "O my God! Error!";
+		} 
+	}
+	catch(e)
+	{
+		alert(e);
+	} 
+}
+ 
+alert(getMonthName());
 
 </script>
 </body>
