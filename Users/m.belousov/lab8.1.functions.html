@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Lab8.1 Functions</title>
+</head>
+<body>
+<script>
+
+// module 
+document.write( "<h1>Lab8.1 Functions</h1>" )
+
+
+
+function Inc()
+{
+	var counter = 0;
+	return function()
+	{
+	return counter++;
+	}
+}
+
+var counter = Inc()
+
+document.write(counter())
+document.write( "<br/>")
+
+document.write(counter())
+document.write( "<br/>")
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+function Point(x,y)
+{
+	if (arguments.length < 2)
+		{throw new Error("ArgumentError")}
+
+	var _x = x;
+	var _y = y;
+
+	this.draw = function()
+		{
+			document.write("x=" + _x + " y=" + _y + "<br/>");
+		}
+}
+
+var pt = new Point(1,2);
+
+pt.draw();
+
+pt.x = 4
+pt.y = 5
+
+pt.draw();
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+</script>
+</body>
+</html>
+

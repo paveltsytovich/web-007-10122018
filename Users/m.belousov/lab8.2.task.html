@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Lab8.2 Class Dev</title>
+</head>
+<body>
+<script>
+
+// module 
+document.write( "<h1>Lab8.2 Debit card</h1>" )
+
+
+
+function DebitCard(CardNum)
+{
+	var _cardnum = CardNum
+	var _pin = CardNum + "1"
+	var _balance = 0
+	var _auth = false
+
+	this.Auth = function(pin)
+	{
+		if (pin == _pin)
+		{
+			_auth = true
+		}
+		else
+		{
+			_auth = false
+		}
+
+	}
+
+	this.isAuth = function()
+	{
+		if (_auth)
+		{
+			return true
+		}
+		else
+		{
+			throw new Error("PIN is incorrent")
+			return false
+		}
+
+	}
+
+	this.Pay = function(x)
+	{
+		if (_auth)
+		{
+			_balance = _balance + x
+		}
+	}
+
+	this.Cash = function(x)
+	{
+		if (_auth && parseInt(x,10) > parseInt(_balance,10))
+		{
+			return "Low balance<br/>"
+		} 
+		else
+		{
+			_balance = _balance - x
+		}
+	}
+
+	this.GetBalace = function()
+	{
+	if (_auth)
+		{
+			return _balance
+		}
+	}
+}
+
+var card1 = new DebitCard(123);
+card1.Auth("1231")
+//card1.Auth("3333")
+card1.Pay(2)
+card1.Cash(1)
+document.write(card1.GetBalace() + "<br/>" )
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+</script>
+</body>
+</html>
+
