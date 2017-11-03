@@ -1,0 +1,30 @@
+<script>
+
+
+
+function Inc()
+{
+  var counter = 0;
+  var fx = function()
+  {
+   return counter++;
+  }
+ return fx;
+}
+
+var counter1 = Inc();
+var counter2 = Inc();
+
+if(counter1 == counter2)
+ alert("equals");
+else
+ alert("no equals");
+/*
+alert(counter1());
+alert(counter1());
+
+alert(counter2());
+alert(counter2());
+*/
+
+</script>
