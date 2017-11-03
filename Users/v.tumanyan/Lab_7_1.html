@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Lab 7</title>
+</head>
+<body>
+
+<script>
+
+var counter = 0;
+function inc()
+{
+ var counter = 0;
+ return function()
+ {
+  return counter++;
+ }
+}
+
+var counter = inc();
+alert(counter());
+//alert(inc());
+alert(counter()); 
+alert(counter()); 
+alert(counter()); 
+alert(counter()); 
+
+
+</script>
+</body>
+</html>
