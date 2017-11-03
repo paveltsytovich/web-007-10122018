@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Try Catch</title>
+</head>
+
+
+<script>
+
+function f(x)
+ {
+   document.write("<h1>!!!</h1>");
+   throw new Error("Ooops");
+ }
+ 
+try
+ {
+ setTimeout(f,5000);
+ document.write("done");
+ }
+catch(e)
+ {
+ alert("Catch");
+ } 
+ 
+</script>
+<body>
+</body>
+</html>

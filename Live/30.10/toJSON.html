@@ -1,0 +1,15 @@
+<html>
+
+<script>
+var event = { title : "Lesson", date : "2017-10-30",
+              toJSON : function()
+                       { return '{"name":"' + this.title + '"}'; }
+};
+
+var str = JSON.stringify(event);
+
+alert(str);
+
+</script>
+
+</html>

@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>Lab3-1</title>
+    <script>
+        function DebetCard(pin, balance) {
+            var _pin = pin;
+            var _auth = 0;
+            var _balance = balance;
+
+            this.auth = function (pin) {
+                if (pin == _pin) {
+                    _auth = 1;
+                } else {
+                    document.write('wrong PIN!');
+                }
+            }
+
+            this.putMoney = function (amount) {
+                if (_auth == 0) {
+                    document.write('not auth!');
+                } else {
+                    _balance += amount;
+                    _auth = 0;
+                }
+            }
+
+            this.getBalance = function (amount) {
+                if (_auth == 0) {
+                    document.write('not auth!');
+                } else {
+                    _auth = 0;
+                    return _balance;
+                }
+            }
+
+            this.getMoney = function (amount) {
+                if (_auth == 0) {
+                    document.write('not auth!');
+                } else if (_balance < amount) {
+                    document.write('no money!');
+                    _auth = 0;
+                } else {
+                    _balance -= amount;
+                    _auth = 0;
+                }
+            }
+        }
+
+        var dc = new DebetCard('1111', 100)
+        dc.auth('1111');
+        document.write(dc.getBalance());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

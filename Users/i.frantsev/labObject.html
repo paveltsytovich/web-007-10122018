@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script>
+        var user = {
+            firstName: "Ilya",
+            lastName: "Frantsev",
+            birthDay: '1985-06-01',
+
+            get fullName() {
+                return this.lastName + " " + this.firstName;
+            },
+
+            get age() {
+                return new Date(new Date - new Date(this.birthDay)).getFullYear() - 1970;
+            },
+            set setFirstName(value) {
+                if (value == "") {
+                    return NaN;
+                }
+                this.firstName = value;
+
+                return "sucess";
+            },
+            hideProperty: function (key, value) {
+                switch (key) {
+                    case "firstName":
+                        return undefined;
+                    case "lastName":
+                        return undefined;
+                    case "birthDay":
+                        return undefined
+                }
+
+                return value
+            }
+        }
+
+        document.write(user.fullName);
+        document.write('<br>');
+
+        document.write(user.age);
+        document.write('<br>');
+
+        document.write(JSON.stringify(user, user.hideProperty));
+        document.write('<br>');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

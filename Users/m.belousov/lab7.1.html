@@ -1,16 +1,57 @@
 <html>
 <head>
-<title>Lab5</title>
+<title>Lab7</title>
 </head>
 <body>
 <script>
 
-// module 5
-var x = { id: 123, name: "Blah" };
-var y = { id: 456, name: "Not Blah, definitely" };
-var xo = new Object();
+// module 7
+document.write( "<h1>Lab7 - Exceptions</h1><br/>" )
+
+function MakeIt(x) {
+	if (x <= 0)
+		throw new Error("Wrong Argument");
+	return x + 2;
+}
+function f()
+{
+	var x = MakeIt(5)
+	document.write("f compete<br/>")
+	return x;
+}
+
+try
+{
+	//throw new Error("Oops")
+	document.write(MakeIt(2))
+	document.write( "<br/>" )
+	document.write(f())
+	document.write( "<br/>" )
+	alert("ok");
+}
+catch(e)
+{
+	if (e.name == "ReferenceError")
+		alert("error " + e);
+	else
+		document.write(e.message)
+}
+finally
+{
+	document.write("The End of Code")
+}
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
 
 
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+/*
 document.write(
 "a. alert(null == undefined); = " + (null == undefined) + "<br/>" + 
 "b. alert(null === undefined); = " + (null === undefined) + "<br/>" + 
@@ -32,33 +73,7 @@ document.write(
 )
 
 document.write( "<br/>" + "<br/>" + "<br/>" )
-
-document.write(
-"a. x = \"The answer is \" + 42   ~~~~  " + ("The answer is " + 42) + "<br/>" + 
-"b. x = 42 + \" is the answer\"   ~~~~  " + (42 + " is the answer") + "<br/>" + 
-"c. x = \"37\" - 7   ~~~~  " + ("37" - 7) + "<br/>" + 
-"d. x = \"37\" + 7   ~~~~  " + ("37" + 7) + "<br/>" + 
-"e. x = 1 + 2   ~~~~  " + (1 + 2) + "<br/>" + 
-"f. x = \"11\" < \"3\"   ~~~~  " + ("11" < "3") + "<br/>" + 
-"g. x = \"11\" < 3   ~~~~  " + ("11" < 3) + "<br/>" + 
-"h. x = \"one\" < 3   ~~~~  " + ("one" < 3) + "<br/>" + 
-"i. x = 1 + 2 + \" blind mice\"   ~~~~  " + (1 + 2 + " blind mice") + "<br/>" + 
-"j. x = \"blind mice: \" + 1 + 2   ~~~~  " + ("blind mice: " + 1 + 2) + "<br/>"
-)
-
-document.write( "<br/>" + "<br/>" + "<br/>" )
-
-document.write(
-"k. 5%3 ~~~~ " + (5%3) + "<br/>" +
-"l. 5.7%3 ~~~~ " + (5.7%3) + "<br/>" +
-"m. -3.93%2 ~~~~ " + (-3.93%2) + "<br/>"
-)
-
-document.write( "<br/>" + "<br/>" + "<br/>" )
-
-//if(document.getElementById("age").value == 20) {
-	//document.write("300")
-//};
+*/
 
 </script>
 </body>
