@@ -1,0 +1,50 @@
+<html>
+
+<head>
+
+  <body>
+
+    <script>
+      var obj = {
+        secret: 0,
+        get gate() {
+          return this.secret;
+        },
+        set gate(val) {
+          this.secret = val;
+        }
+      }
+
+      document.write(obj.secret);
+      document.write('<br />');
+
+      var o = {
+        x: 1,
+        y: 2,
+        toString: function() {
+          return o.x;
+        }
+      };
+      document.write(o);
+      document.write('<br />');
+
+
+      document.write(JSON.parse("[100, 200, 300]")[1]);
+      document.write('<br />');
+
+      var some_string = '{"title": "some_title", "date": "2017-10-30"}';
+      var parsed_string = JSON.parse(some_string, function(key, value) {
+        return (key == 'date') ? new Date(value) : value
+      });
+      document.write(parsed_string.date.getDate());
+      document.write('<br />');
+
+      var a = [1,2,3,4,5];
+      document.write(a.slice(3));
+      // ДЗ - реализовать вычисляемое поле для возраста
+      // реализовать свою версию stringify
+    </script>
+  </body>
+</head>
+
+</html>

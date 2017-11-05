@@ -6,19 +6,23 @@
         scope = "global";
         function checkscope( ) {
             scope = "local";
-            document.write(scope);
+            let something = 'smth';
+            document.write(scope + '<br />');
+            document.write(something + '<br />');
             myscope = "local";
             document.write(myscope);
         }
-        checkscope( );
+        checkscope();
+        document.write('<br />');
         document.write('<br />');
         document.write(scope);
         // document.write(myscope);
 
         document.write('<br />');
+        document.write('<br />');
 
         var scope = "global scope";
-        function checkscope( ) {
+        function new_checkscope( ) {
             var scope = "local scope";
             function nested( ) {
               var scope = "nested scope";
@@ -26,7 +30,7 @@
             }
             nested( );
           }
-        checkscope( );
+        new_checkscope( );
 
         document.write('<br />');
         const a = [1,2,3];
