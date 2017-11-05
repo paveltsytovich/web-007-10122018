@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>Debit Card</title>
+</head>
+<body>
+
+<script>
+
+/*
+имя клиента
+остаток на счёте
+пин код
+f пополнение
+f снятие
+f остаток
+f только после пин кода
+Auth(pin)
+PutMoney(amt)
+GetMoney(amt)
+GetAmount()
+*/
+function deb_card(pin,name)
+{
+
+ var _pin=pin;
+ var _name=name;
+ var _auth_flg=0;
+ var _balance=0;
+ 
+ this.Auth = function(enterpin)
+ {
+  if (enterpin == _pin)
+   {
+    _auth_flg=1;
+	alert("PIN is correct!");
+   }
+  else 
+   {
+    _auth_flg=0;
+	throw new Error("PIN is not correct!");
+   }
+ }
+ 
+ this.PutMoney = function(balance)
+ {
+  if (_auth_flg==1)
+   {
+    _balance=_balance+balance;
+	alert("Balance updated!");
+   }
+  else 
+   throw new Error("Not authorized!");
+  _auth_flg=0;
+ }
+
+ this.GetMoney = function(balance)
+ {
+  if (_auth_flg==1)
+   if (balance <= _balance)
+    {
+	 _balance=_balance-balance;
+     alert("Operation sucsessful.");
+	}
+   else
+	throw new Error("Not enougth money.");
+  else 
+   throw new Error("Not authorized!");
+  _auth_flg=0;
+ }
+ 
+ this.GetAmount = function()
+ {
+  if (_auth_flg==1)
+   alert("Balance = "+ _balance);
+  else 
+   throw new Error("Not authorized!");
+  _auth_flg=0;
+ }
+}
+
+try {
+var my_card = new deb_card(1234,"Vasya");
+} catch(e) {
+alert(e.message);
+}
+try {
+my_card.Auth(1234);
+} catch(e) {
+alert(e.message);
+}
+try {
+my_card.PutMoney(123);
+} catch(e) {
+alert(e.message);
+}
+try {
+my_card.Auth(1234);
+} catch(e) {
+alert(e.message);
+}
+try {
+my_card.GetAmount();
+} catch(e) {
+alert(e.message);
+}
+
+
+</script>
+</body>
+</html>

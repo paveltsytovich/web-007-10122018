@@ -1,0 +1,25 @@
+<script>
+function Point(x,y)
+{
+  if(arguments.length == 0)
+   throw new Error("ArgumentException");
+
+  this.x = x;
+  this.y = y;
+  
+  this.draw = function()
+    {
+       alert("x=" +this.x + " y="+ this.y);
+    }
+}
+
+var pt = new Point(1,2);
+
+pt.draw();
+
+pt.x = 4;
+pt.y = 5;
+
+pt.draw();
+
+</script>

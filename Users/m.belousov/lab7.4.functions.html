@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Lab7.4 Functions</title>
+</head>
+<body>
+<script>
+
+// module 7
+document.write( "<h1>Lab7.4 Function</h1>" )
+
+function sum() {
+	var s = 0
+	for( var i = 0; i < arguments.length; i++)
+		s += arguments[i]
+	return s
+}
+
+
+document.write(sum())
+document.write( "<br/>")
+
+document.write(sum(1,2,3))
+document.write( "<br/>")
+
+document.write(sum("1",2,3))
+document.write( "<br/>")
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+function makeIt(v,x)
+{
+	var m = x || 2 //default value
+	return v + m
+}
+
+document.write(makeIt(2))
+document.write( "<br/>")
+
+document.write(makeIt(2,3))
+document.write( "<br/>")
+document.write(makeIt(1,Infinity))
+document.write( "<br/>")
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+document.write( "<br/>" + "<br/>" + "<br/>" )
+
+
+</script>
+</body>
+</html>
+

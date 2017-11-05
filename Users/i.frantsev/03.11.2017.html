@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>Lab3-1</title>
+    <script>
+        function Point(x, y) {
+            var _x = x;
+            var _y = y;
+            this.draw = function () {
+                alert(_x + "_" + _y)
+            }
+            this.setX = function (x) {
+                _x = x;
+            }
+        }
+
+        var t = new Point(1, 2);
+
+        t.draw();
+
+        t.setX(3);
+
+        t.draw();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
