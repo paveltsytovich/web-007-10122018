@@ -1,0 +1,55 @@
+var a = {x:1};
+var b = {x:1};
+console.log(a.x ==  b.x);
+console.log(null == undefined);
+console.log(null === undefined);
+console.log(5 == "5");
+console.log(5 === "5");
+console.log("true" ==true);
+console.log(1 == true);
+console.log("1" == true);
+console.log(1 === true);
+console.log("0" == false);
+console.log("0" === false);
+var x = {id: 123, name: "Blah"};
+var y = {id: 456, name: "not Blah"};
+console.log(x == "[object Object]");
+console.log(typeof(x));
+console.log(y == "[object Object]");
+console.log(x == y);
+console.log(1 != true);
+console.log(0 != true);
+console.log(5 != "5");
+var z = new Object();
+console.log(z == "[object Object]");
+var k;
+if (k == null) {
+    console.log("k must be defined " + k);
+};
+var m = null;
+if (m == null) {
+    console.log("m must be defined " + m);
+};
+console.log(x = "The answer is " + 42);
+console.log(x = 42 + " is the answer");
+console.log(x = "37" - 7);
+console.log(x = "37" + 7);
+console.log(x = 1 + 2);
+console.log(x = "11" < "3");
+console.log(x = "11" < 3);
+console.log(x = "one" < 3);
+console.log(x = 1 + 2 +" blind mice");
+console.log(x = "blind mice " + 1 + 2);
+
+console.log(5 % 3);
+console.log(5.7 % 3);
+console.log(-3.93 % 2);
+console.log(x=5,y = 4, c= 3);
+for (var i=0; i<6; i++)
+{  
+    console.log(i % 2);
+}
+/*var now = new Date();
+var yesterday = new Date();
+console.log(now.);
+console.log(yesterday);*/

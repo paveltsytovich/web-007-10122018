@@ -1,0 +1,9 @@
+var n = 10;
+var s = "";
+console.log("" + (2&1) );
+console.log("" + (5>>1) );
+for (var i=0;i<10;i++ ) {
+  s = "" + ((n>>i)&1) + s;
+
+};
+console.log(s);
