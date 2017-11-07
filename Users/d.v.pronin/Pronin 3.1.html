@@ -1,0 +1,111 @@
+<html>
+<head>
+  <body>
+
+    <script>
+
+    // 1.  Конкатенация числа со строкой:
+  var n = 100;
+  var s = n + " bottles of beer on the wall.";
+  document.write("1. Конкатенация числа со строкой:"  + s + '<br />');
+  document.write("2. Конкатенация числа n с пустой строкой:" + n + '' + '<br />');
+  document.write("3. Вызов функции String(number):" + String(n) + '<br />');
+  document.write("4. Вызов метода toString():" + n.toString() + '<br />');
+
+  var n = 17;
+  binary_string = n.toString(2);
+  document.write("5.  Вызов метода toString() с указанием основания:" + n.toString(2) + '<br />');
+
+  number = 123456.789;
+  document.write("6.a: " + number.toFixed(0) + '<br />');
+  document.write("6.b: " + number.toFixed(2) + '<br />');
+  document.write("6.c: " + number.toExponential(1) + '<br />');
+  document.write("6.d: " + number.toExponential(3) + '<br />');
+  document.write("6.e: " + number.toExponential(3) + '<br />');
+  document.write("6.f: " + number.toFixed(1) + '<br />');
+
+
+  document.write('Часть 2. Конвертация строка-число.' + '<br />');
+
+var product = "21" * "2";
+  document.write('1. ' + typeof(product) + ': ' + product + '<br />');
+
+  var string_value = 'some string';
+  var number = string_value - 0;
+  document.write('2. ' + number + '<br />');
+
+  document.write('3. ' + Number(string_value) + '<br />');
+
+  document.write('4. ' + Number(string_value) + '<br />');
+
+
+document.write('4.a.:' +  parseInt("3 blind mice") + '<br />');
+document.write('4.b.:' +  parseFloat("3.14 meters") + '<br />');
+document.write('4.c.:' +  parseInt("12.34") + '<br />');
+document.write('4.d.:' +  parseInt("0xFF") + '<br />');
+document.write('4.e.:' +  parseInt("11", 2) + '<br />');
+document.write('4.f.:' +  parseInt("ff", 16) + '<br />');
+document.write('4.g.:' +  parseInt("zz", 36) + '<br />');
+document.write('4.h.:' +  parseInt("077", 8) + '<br />');
+document.write('4.i.:' +  parseInt("077", 10) + '<br />');
+document.write('4.j.:' +  parseInt("eleven") + '<br />');
+document.write('4.k.:' +  parseFloat("$72.47")  + '<br />');
+
+  document.write('<br />Часть 3. Boolean преобразования.' + '<br />');
+
+// При условии, что x это:
+var x = undefined;
+document.write('a. ' + String(x == true) + '<br />') ;
+x = null;
+document.write('b. ' + String(x == true) + '<br />') ;
+x = 'aaa';
+document.write('2. ' + String(x == true) + '<br />') ;
+x = 7;
+document.write('3. ' + String(x == true) + '<br />') ;
+x = 0;
+document.write('4. ' + String(x == true) + '<br />') ;
+x = Infinity;
+document.write('5. ' + String(x == true) + '<br />') ;
+x = new Object(1);
+document.write('6. ' + String(x == true) + '<br />') ;
+x =1;
+document.write('7. ' + Boolean(x) + '<br />') ;
+document.write('8. ' + String(!!x) + '<br />') ;
+
+
+  document.write('<br />Часть 4. Передача значения примитивного типа.' + '<br />');
+
+  var n = 1;
+  var m = n;
+  function add_to_total(total, x)
+  {
+  total = total + x;
+  }
+
+
+document.write(add_to_total(n, m) + '<br />');
+
+document.write('<br />Часть 5. Работа со ссылочными типами.' + '<br />');
+
+var xmas = new Date(2007, 11, 25);
+var solstice = xmas;
+solstice.setDate(21);
+xmas.getDate( );
+document.write('1. ' + xmas.getDate( ) + '<br />');
+document.write('2. ' + String(xmas == solstice) + '<br />');
+
+var xmas = new Date(2007, 11, 25);
+var solstice_plus_4 = new Date(2007, 11, 25);
+// xmas != solstice_plus_4;
+document.write('3. ' + String(xmas != solstice_plus_4) + '<br />');
+
+
+
+
+
+
+    </script>
+
+  </body>
+</head>
+</html>
