@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Work 2017.11.07</title>
+</head>
+<body>
+<script>
+
+function BankCard(pin, amount, owner)
+{
+  this.Owner = owner;
+  var _amount = amount;
+  var _pin = crypt(pin);
+  var _auth = false;
+
+  this.Authorize = function(pin)
+  {
+    _auth = (decrypt() == pin);
+  }
+
+  function crypt(pin)
+  {
+    return pin ^ 0x2;
+  }
+
+  function decrypt()
+  {
+    return _pin ^ 0x2;
+  }
+
+  this.report = function()
+  {
+    return "Report: " + "authorized = " + _auth + ", " + createInternalReport.call(this);
+  }
+
+  function createInternalReport()
+  {
+    return this.Owner + ' ' + _amount;
+  }  // .bind(this)
+
+  this.GetMoney = function(amount)
+  {
+    if (!_auth)
+      throw new Error("Not authorized!");
+    if (amount > _amount)
+      throw new Error("Bad Balance!");
+
+    _amount -= amount;
+    return amount;
+  }
+
+  this.PutMoney = function(amount)
+  {
+    if (!_auth)
+      throw new Error("Not authorized!");
+    if (amount <= 0)
+      throw new Error("Bad Amount!");
+
+    _amount += amount;
+  }
+}
+
+var myCard = new BankCard(1234,100500, "Tinkov");
+myCard.Authorize(1234);
+//alert(myCard.report());
+
+function PremiumCard(pin, amount, owner)
+{
+  BankCard.call(this, pin, amount, owner);
+
+  var _parentGetMoney = this.GetMoney;
+
+  this.GetMoney = function(amount)
+  {
+    var sum = _parentGetMoney.call(this, amount);
+    this.PutMoney(sum/10);
+    return sum;
+  }
+}
+
+var myPremiumCard = new PremiumCard(4321,100000,"Tinkoff");
+myPremiumCard.Authorize(4321);
+myPremiumCard.GetMoney(50000);
+alert(myPremiumCard.report());
+
+</script>
+</body>
+</html>
