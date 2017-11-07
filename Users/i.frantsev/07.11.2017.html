@@ -1,0 +1,66 @@
+<script>
+    function Card(pin, amount, owner) {
+        var obj = this;
+
+        var _amount = amount;
+
+
+        obj.owner = owner;
+
+
+
+        var _pin = crypt(pin);
+
+        obj.Authorize = function (pin) {
+
+        };
+
+        function crypt(pin) {
+            return pin ^ 0x2;
+        }
+
+        function deCrypt() {
+            return _pin ^ 0x2;
+        }
+
+        function getName() {
+            return obj.owner;
+        }
+
+        obj.getReport = function () {
+            return "Balance: " + _amount;
+
+        }
+
+        obj.getMoney = function (amount) {
+            _amount -= amount;
+
+        }
+
+        obj.pullMoney = function (amount) {
+            _amount += amount;
+        }
+
+    }
+
+    function PremiumCard(pin, amount, owner) {
+        var obj = this;
+        Card.call(obj, pin, amount, owner);
+        var baseGetMoney = this.getMoney;
+
+        obj.getMoney = function (amount) {
+            baseGetMoney.call(obj, amount);
+            obj.pullMoney(amount * 0.1);
+
+        }
+
+    }
+
+    var myCard = new PremiumCard(1111, 100, 'Ilya');
+
+    document.write(myCard.getReport() + '<br>');
+    myCard.getMoney(10);
+    document.write(myCard.getReport() + '<br>');
+    myCard.getMoney(10);
+    document.write(myCard.getReport() + '<br>');
+</script>
