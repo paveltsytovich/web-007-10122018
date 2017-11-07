@@ -5,12 +5,15 @@
 <body>
 <script>
 //снятие
-function DebetCard(bal,pin)
+function DebetCard(bal,pin,owner)
 {
   if(typeof bal != "number" || typeof pin != "number") throw new Error("Please enter valid arguments");
   var _bal = bal;
   var _pin = pin;
   var _authorized = 0;
+  var _self = this;
+  
+  this.Owner = owner;
   
   this.Auth = function(pintry)
     {
@@ -37,11 +40,44 @@ function DebetCard(bal,pin)
 	  if(_authorized == 0) throw new Error("Please autorize!");
 	  alert("Your balance is " + _bal + " Rubles");
 	}
+  this.report = function()
+    {
+	  return "Report of " + _createInternalReport();
+	}
+  var _createInternalReport = function()
+    {
+      return _self.Owner + ' ' + _bal;
+    }
   
 }
+
+var card = new DebetCard(100,1111,"Test");
+
+function PremiumCard(a,b,c){
+  DebetCard.call(this,a,b,c);
+  
+  var _parentGetMoney = this.GetMoney;
+  
+  this.GetMoney = function(amount)
+    {
+	  _parentGetMoney.call(this,amount);
+	  this.PutMoney(amount*0.1);
+    }
+}
+;
+
+var premcard = new PremiumCard(100,113,"Polyan");
+
+
+premcard.Auth(113);
+premcard.GetMoney(100);
+alert(premcard.report());
+
+
+/*
 try
 {
-  var card = new DebetCard(100,1111);//карта 100 рублей; пин = 1111
+  var card = new DebetCard(100,1111,"Test");//карта 100 рублей; пин = 1111
 }
 catch(e)
 {
@@ -50,7 +86,7 @@ catch(e)
 
 try
 {
-  card.Auth(1110);
+  alert(card.report());
 }
 catch(e)
 {
@@ -127,7 +163,7 @@ try
 catch(e)
 {
   alert(e.message);
-}
+}*/
 
 </script>
 </body>
