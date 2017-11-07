@@ -1,40 +1,23 @@
 <html>
 <head>
-<title>Laboratory 6</title>
+<title>Try Catch</title>
 </head>
 <body>
 
 <script>
 
-function f(x)
- {
-  if (x<=0)
-   throw new Error("<=0");
-  return x+2;
- }
+function sum()
+{
+var s=0;
+for(var i=0; i<arguments.length; i++)
+ s+= arguments[i];
+ return s;
+}
 
-function f2()
- {
- var x=f(-1);
- alert("f2");
- return x;
- } 
+document.write(sum());
+document.write("</br>");
+document.write(sum(1,2,3,4));
 
-try
- {
-  alert(f(2));
-  alert(f2(0));
- }
-catch(e)
- {
- //alert(e.message);
- //alert(e.name);
- if(e.name=="ReferenceError")
-  alert("1");
- else 
-  alert(e.message);
- }
- 
 </script>
 </body>
 </html>
