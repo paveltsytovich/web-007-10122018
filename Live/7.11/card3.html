@@ -1,0 +1,38 @@
+<script>
+
+function Card(pin,amount,owner)
+{
+  this.Owner = owner;
+  var _amount = amount;
+  var _pin = crypt(pin);
+  var _auth;
+  var _self = this;
+  this.Authorize = function(pin) {
+      if(deCrypt() == pin)
+       _auth = true;
+      else
+        _auth = false;
+ };
+ this.report = function() {
+  return "Report of " + createInternalReport();
+}
+  function crypt(pin) {
+    return pin ^ 0x2;
+ };
+ 
+   function deCrypt() {
+    return _pin ^ 0x2; 
+}
+   function createInternalReport() {
+    return _self.Owner + ' ' + _amount;
+};
+  
+   
+
+}
+
+var  myCard = new Card(1234,100,"Test");
+myCard.Authorize(1234);
+alert(myCard.report());
+
+</script>
