@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>Debit Card</title>
+</head>
+<body>
+
+<script>
+
+/*
+имя клиента
+остаток на счёте
+пин код
+f пополнение
+f снятие
+f остаток
+f только после пин кода
+Auth(pin)
+PutMoney(amt)
+GetMoney(amt)
+GetAmount()
+*/
+function deb_card(pin,name)
+{
+
+ var _pin=pin;
+ this._name=name;
+ this._auth_flg=0;
+ this._balance=0;
+ 
+ this.Auth = function(enterpin)
+ {
+  if (enterpin == _pin)
+   {
+    this._auth_flg=1;
+   }
+  else 
+   {
+    this._auth_flg=0;
+	throw new Error("PIN is not correct!");
+   }
+ }  
+}
+
+
+ deb_card.prototype.PutMoney = function(balance)
+ {
+  this._balance=this._balance+balance;
+  return this._balance;
+ }
+
+ deb_card.prototype.GetMoney = function(balance)
+ {
+  if (this._auth_flg==1)
+   if (balance <= this._balance)
+    {
+	 this._balance=this._balance-balance;
+	}
+   else
+	throw new Error("Not enougth money.");
+  else 
+   throw new Error("Not authorized!");
+  this._auth_flg=0;
+  return this._balance;
+ }
+ 
+ deb_card.prototype.GetAmount = function()
+ {
+  if (this._auth_flg==1)
+   return this._balance;
+  else 
+   throw new Error("Not authorized!");
+  this._auth_flg=0;
+ }
+
+//=========================================================================
+/*function premium_card(pin,name){
+ deb_card.call(this,pin,name);
+ var _parentGetMoney =this.GetMoney;
+
+ this.GetMoney = function(amount) {
+     _parentGetMoney.call(this,amount);
+	 this.PutMoney.call(this,amount*0.1);
+ }
+}*/
+
+
+try {
+var my_card = new deb_card(1234,"Vasya");
+my_card.Auth(prompt("Enter pin",1234));
+alert(my_card.GetAmount());
+my_card.PutMoney(12324);
+my_card.Auth(prompt("Enter pin",1234));
+alert(my_card.GetAmount());
+my_card.Auth(prompt("Enter pin",1234));
+my_card.GetMoney(12);
+my_card.Auth(prompt("Enter pin",1234));
+alert(my_card.GetAmount());
+} catch(e) {
+alert(e.message);
+}
+
+
+</script>
+</body>
+</html>
