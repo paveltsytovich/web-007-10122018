@@ -5,56 +5,186 @@
 <script>
 
 
-// сколько денег, самого владдельца.
-//Задча: обеспечить поддержку:
-//снятие наличных, принимает (сколько запросил пользователь).
-//Функия пополнение.
-//Возвращает остатоок
-//Процедура авторизации. В качестве параметра - пинкод (целое число) 
+// Часть 1
+var a = sum(2,2) // Сработает (4)
 
-function readPin()
+function sum(x,y) 
 {
-	var pin = prompt("Введите ваш Пин-код");
-	return (Number(pin));
+	return x+y;
 }
 
-function debitCard()
-{
-	pin = readPin();
-	var number = 567;	
-	try{	
-		if (pin == number ) {
-			return 1;
-		} else 
-		{
-			throw "O my God! Error!";
-		} 
-	}
-	catch(e)
-	{
-		alert(e);
-	} 
-	
-	
-	this.takeMoney()
-	{	
-		this.money += prompt("Сколько хотите даобавить?");
-		return this.money;
-	}
-	
-	this.getMoney ()
-	{	
-		this.money -= prompt("Сколько хотите снять?");
-		return this.money;
-	}
-	
-	this.showMoney()
-	{
-		return this.money;
-	}
+alert(a);
+
+/*
+var a2 = sum2(2,2)  // Не работает
+var sum2 = function(x,y) {
+return x+y
 }
 
-var card = debitCard();
+alert(a2);
+*/
+
+
+// Часть 2
+function f(p) 
+{
+	if (p>0) 
+		return p;
+}
+x = f(5);
+alert(x);  // 5
+
+x = f(-5);
+alert(x);  // 5 Undefined
+
+
+// Часть 3
+function func(param) 
+{
+	alert("First declaration");
+}
+
+function func() 
+{
+	alert("Second declaration");
+}
+
+func(2); // Выведет "Second declaration"
+
+
+// Часть 4
+function f2() 
+{
+	p = 5;
+}
+f2(); 
+alert(p);  // Выведет 5
+
+
+function f3() 
+{
+	var p = 5;
+}
+f3();
+alert(p); // Выведет 5
+
+
+
+
+// Часть 5
+var run = function(distance, speed) 
+{
+	speed = speed || 10;
+	var time = distance / speed;
+	return time;
+}
+
+alert(run());            // Nan
+alert(run(10));          // 1
+alert(run(10,5));        // 2
+alert(run(10, 5, 2, 7)); // 2
+
+
+
+// Часть 6
+function fa() 
+{
+	var sum = 0;
+	for (var i = 0; i < arguments.length; i++ ) 
+		sum += arguments[i];
+
+    return sum == 0 ? sum : sum / arguments.length;
+}
+
+alert(fa(1, 2, 3, 4, 5, 6, 7, 8, 9));  // Выведет 5
+
+
+// Часть 7
+function resize(toWidth, toHeight, saveProportion, animate) 
+{
+	// значения по умолчанию
+	saveProportions = saveProportions || true
+	animate = animate || true
+	toHeight = toHeight || true
+}
+alert(resize(100, null, null, true)); 
+
+
+function resize(setup) 
+{
+	// значения по умолчанию
+	var saveProportions = setup.saveProportions || true
+	var animate = setup.animate || true
+	var toHeight = setup.toHeight || true
+}
+alert(resize(100, null, null, true));
+
+
+// Часть 8
+function makeShout() 
+{
+	var phrase = "Привет!";
+	var shout = function() 
+	{
+		alert(phrase);
+	}
+	phrase = "Готово!"
+	return shout;
+}
+
+shout = makeShout();
+shout();  // "Готово!"
+
+
+// Часть 9
+function sum(a) 
+{
+  var currentSum = a;
+
+  function f(b) {
+    currentSum += b;
+    return f;
+  }
+
+  f.toString = function() {
+    return currentSum;
+  };
+
+  return f;
+}
+
+alert(sum(2)(2)); //4
+var plus1 = sum(1);
+alert(plus1(3)); // 4
+
+
+// Часть 10
+function makeProperty(o, name, predicate) 
+{
+	var value;
+	o["get" + name] = function() 
+	{ 
+		return value; 
+	};
+	
+	o["set" + name] = function(v) 
+	{
+		if (predicate && !predicate(v))
+			throw "set" + name + ": invalid value " + v;
+		else
+			value = v;
+	};
+}
+
+var o = {};
+makeProperty(o, "Name", function(x) 
+{
+	return typeof x == "string";
+});
+o.setName("Frank");
+print(o.getName());
+o.setName(0);
+
 
 </script>
 </body>
