@@ -1,0 +1,58 @@
+<script>
+"use strict"
+
+function Card(pin, firstName,lastName,amount) {
+   this.pin = pin;
+   this.amount = amount;
+   this.Auth = false;
+   this.firstName = firstName;
+   this.lastName = lastName;
+   Object.defineProperty(this,"Auth",{enumerable : false});
+   Object.defineProperty(this,"amount",{enumerable: false});
+   Object.defineProperty(this,"bonus",{ value:10,writable:false,configurable: false})
+   Object.defineProperty(this,"title", 
+			{
+			  get: function() { return this.firstName + " " + this.lastName;}
+			}
+		);
+
+}
+
+Card.prototype.Authorize = function(pin) {
+  if(this.pin != pin)
+    throw new Error("Authorize");
+  this.Auth = true;
+}
+Card.prototype.PutMoney = function(amount) {
+ if(!this.Auth) throw new Error("Not Auth");
+ if(typeof amount != "number") throw new Error("Please enter REAL money");
+ this.amount += amount;
+}
+Card.prototype.toString = function() {
+  return 'Debit card of '+ this.title + ' with amount is ' + this.amount;
+}
+var myCard = new Card(1234,"Test","Tester",100);
+
+Card.prototype.GetMoney = function(amount) {
+  if(!this.Auth) throw new Error("Not Auth");
+  if(typeof amount != "number") throw new Error("Please request REAL money");
+  if(amount > this.amount) throw new Error("Your balance is too low =(");
+  this.amount = this.amount - amount;
+}
+Card.prototype.GetBalance = function() {
+  if(!this.Auth) throw new Error("Not Auth");
+  alert("Your balance is " + this.amount + " Rubles");
+}
+
+
+
+document.write(myCard);
+myCard.Authorize(1234);
+myCard.GetBalance();
+myCard.PutMoney(20);
+myCard.GetBalance();
+
+
+
+
+</script>

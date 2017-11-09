@@ -1,0 +1,12 @@
+<script>
+
+ myCard = { Owner: "Test", Amount: 100  };
+
+ myPremiumCard = { PercentOfBonus : 10 };
+
+ myPremiumCard.__proto__ = myCard;
+
+ myPremiumCard.Owner = 'Traveler';
+
+ alert(myPremiumCard.Owner);
+</script>
