@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Work 2017.11.09</title>
+</head>
+<body>
+<script>
+
+function Card(pin, amount, owner)
+{
+  this.pin = pin;
+  this.amount = amount;
+  this.owner = owner;
+  this.authorized = false;
+}
+
+Card.prototype.Authorize = function(pin)
+{
+  this.authorized = (this.pin == pin);
+}
+
+Card.prototype.PutMoney = function(amount)
+{
+  if(!this.authorized)
+    throw new Error("Not authorized");
+    if (amount <= 0)
+      throw new Error("Bad Amount!");
+  this.amount += amount;
+}
+
+Card.prototype.GetMoney = function(amount)
+{
+  if (!this.authorized)
+    throw new Error("Not authorized!");
+  if (amount > this.amount)
+    throw new Error("Bad Balance!");
+
+  this.amount -= amount;
+  return amount;
+}
+
+Card.prototype.toString = function()
+{
+  return 'Card of '+ this.owner + ', who has ' + this.amount + ' dollars <br>';
+}
+
+
+function PremiumCard(pin, amount, owner)
+{
+  Card.call(this, pin, amount, owner);
+}
+// задаём наследование
+PremiumCard.prototype = Object.create(Card.prototype);
+PremiumCard.prototype.constructor = PremiumCard;
+
+PremiumCard.prototype.GetMoney = function(amount)
+{
+  var sum = Card.prototype.GetMoney.call(this, amount);
+  this.PutMoney(sum/10);
+  return sum;
+}
+
+
+
+var myCard = new Card(1234,1000,'Innokentiy');
+myCard.Authorize(1234);
+myCard.GetMoney(100);
+document.write(myCard);
+
+var myPremiumCard = new PremiumCard(1234,1000,'Vasisualiy');
+myPremiumCard.Authorize(1234);
+myPremiumCard.GetMoney(100);
+document.write(myPremiumCard);
+
+
+</script>
+</body>
+</html>
