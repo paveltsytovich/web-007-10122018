@@ -1,0 +1,27 @@
+<script>
+function Card(pin, owner,amount) {
+   this.pin = pin;
+   this.owner = owner;
+   this.amount = amount;
+   this.Auth = false;
+}
+
+Card.prototype.Authorize = function(pin) {
+  if(this.pin != pin)
+    throw new Error("Authorize");
+  this.Auth = true;
+}
+Card.prototype.PutMoney = function(amount) {
+ if(!this.Auth)
+  throw new Error("Not Auth");
+ this.amount += amount;
+}
+
+var myCard = new Card(1234,100,"Test");
+
+myCard.Authorize(1234);
+myCard.PutMoney(100);
+
+alert(myCard);
+
+</script>
