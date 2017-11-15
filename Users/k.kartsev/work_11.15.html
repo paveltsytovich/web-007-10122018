@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Work 2017.11.15</title>
+</head>
+<body onunload="alert('Document loaded');">
+
+<h1 onclick="alert('Clicked!');">Click me</h1>
+
+<a href="javascript:new Date().toLocaleTimeString();">Посмотри время</a>
+<br>
+<a href="javascript:window.open('about:blank'); void 0;">
+Open Window
+</a>
+
+<p id="para" onclick="justify();">
+  This is paragraph
+</p>
+
+<script>
+
+  var needX = false;
+  var winner = "";
+
+  function justify() {
+    p = document.getElementById('para');
+    p.setAttribute("align","center");
+  }
+
+  function reply_click(id) {
+    td = document.getElementById(id);
+    if(td.innerText || winner)
+      return;
+
+    if(needX)
+      td.innerHTML = "X";
+    else
+      td.innerHTML = "O";
+
+    winner = checkWinner();
+    if (winner)
+      alert ("You win!");
+
+    needX = !needX;
+  }
+
+  function checkWinner() {
+
+    if (document.getElementById("11").innerText && document.getElementById("11").innerText == document.getElementById("12").innerText
+          && document.getElementById("11").innerText == document.getElementById("13").innerText)
+      return true;
+    if (document.getElementById("21").innerText && document.getElementById("21").innerText == document.getElementById("22").innerText
+            && document.getElementById("21").innerText == document.getElementById("23").innerText)
+      return true;
+    if (document.getElementById("31").innerText && document.getElementById("31").innerText == document.getElementById("32").innerText
+            && document.getElementById("31").innerText == document.getElementById("33").innerText)
+      return true;
+
+    if (document.getElementById("11").innerText && document.getElementById("11").innerText == document.getElementById("21").innerText
+          && document.getElementById("11").innerText == document.getElementById("31").innerText)
+      return true;
+    if (document.getElementById("12").innerText && document.getElementById("12").innerText == document.getElementById("22").innerText
+            && document.getElementById("12").innerText == document.getElementById("32").innerText)
+      return true;
+    if (document.getElementById("13").innerText && document.getElementById("13").innerText == document.getElementById("23").innerText
+            && document.getElementById("13").innerText == document.getElementById("33").innerText)
+      return true;
+
+    if (document.getElementById("11").innerText && document.getElementById("11").innerText == document.getElementById("22").innerText
+          && document.getElementById("11").innerText == document.getElementById("33").innerText)
+      return true;
+    if (document.getElementById("13").innerText && document.getElementById("13").innerText == document.getElementById("22").innerText
+          && document.getElementById("13").innerText == document.getElementById("31").innerText)
+      return true;
+
+
+    return false;
+
+
+  }
+
+</script>
+
+
+<table border="1">
+<tr height="20">
+ <td width="20" align="center" id="11" onclick="reply_click(this.id)"> </td>
+ <td width="20" align="center" id="12" onclick="reply_click(this.id)"> </td>
+ <td width="20" align="center" id="13" onclick="reply_click(this.id)"> </td>
+</tr>
+
+<tr height="20">
+ <td align="center" id="21" onclick="reply_click(this.id)"></td>
+ <td align="center" id="22" onclick="reply_click(this.id)"></td>
+ <td align="center" id="23" onclick="reply_click(this.id)"></td>
+</tr>
+
+<tr height="20">
+ <td align="center" id="31" onclick="reply_click(this.id)"></td>
+ <td align="center" id="32" onclick="reply_click(this.id)"></td>
+ <td align="center" id="33" onclick="reply_click(this.id)"></td>
+</tr>
+
+</table>
+
+</body>
+</html>
