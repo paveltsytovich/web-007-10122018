@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Plotly</title>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+<div id="plotly-div"></div>
+<script>
+//Plotly.d3.json('https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy_dark.json', function(fig){
+//Plotly.d3.json('sankey_energy_dark.json', function(fig){
+Plotly.d3.json('sankey_flows_test.json', function(fig){
+var data = fig.data//[0]
+/*{
+  type: "sankey",
+  domain: {
+    x: [0,1],
+    y: [0,1]
+  },
+  orientation: "h",
+  valueformat: ".0f",
+  valuesuffix: "TWh",
+  node: {
+    pad: 15,
+    thickness: 15,
+    line: {
+      color: "black",
+      width: 0.5
+    },
+   label: fig.data[0].node.label,
+   color: fig.data[0].node.color
+  },
+  link: {
+    source: fig.data[0].link.source,
+    target: fig.data[0].link.target,
+    value: fig.data[0].link.value,
+    color: "rgba(90,90,96,0.7)",//fig.data[0].link.color,
+    label: fig.data[0].link.label
+  }
+}*/
+
+//var data = [data]
+
+data[0].link.color = "rgba(10,90,96,0.7)";
+data[0].node.color = "rgba(900,900,96,0.7)";
+
+var layout = fig.layout
+/*{
+  title: fig.layout.title,//"Energy forecast for 2050<br>Source: Department of Energy & Climate Change, Tom Counsell via <a href='https://bost.ocks.org/mike/sankey/'>Mike Bostock</a>",
+  width: 1500,
+  height: 1000,
+  font: {
+    size: 10,
+    color: 'white'
+  },
+  plot_bgcolor: 'black',
+  paper_bgcolor: 'white'
+}*/
+
+Plotly.plot('plotly-div', data, layout)
+});
+
+</script>
+
+</body>
+</html>
