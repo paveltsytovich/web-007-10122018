@@ -6,14 +6,18 @@
 
 <script>
 var Turn = true;
+var Won = false;
 function herak(id) 
 {
   h = document.getElementById(id);
-  if(Turn==true) h.innerHTML = "X";
-  if(Turn==false) h.innerHTML = "O";
-  Turn = !Turn;
-  if(Turn==true)document.getElementById("Turner").innerHTML="Ходят кресты";
-  if(Turn==false)document.getElementById("Turner").innerHTML="Ходят кружочки";
+  if(Won==false && h.innerHTML == ".")
+  {
+    if(Turn==true) h.innerHTML = "X";
+    if(Turn==false) h.innerHTML = "O";
+    Turn = !Turn;
+    if(Turn==true)document.getElementById("Turner").innerHTML="Ходят кресты";
+    if(Turn==false)document.getElementById("Turner").innerHTML="Ходят кружочки";
+  }
 }
 function checkVictory()
 {
@@ -34,7 +38,7 @@ function checkVictory()
 	 (h12==h22 && h32==h22 && h12 != ".") ||
 	 (h13==h23 && h33==h23 && h13 != ".") ||
 	 (h11==h22 && h33==h22 && h11 != ".") ||
-	 (h13==h22 && h31==h22 && h13 != ".")) {if(Turn == true)alert('КРУЖОЧКИ ПОБЕДИЛИ!');if(Turn == false) alert('ПОБЕДИЛИ КРЕСТЫ!');}
+	 (h13==h22 && h31==h22 && h13 != ".")) {if(Turn == true)alert('КРУЖОЧКИ ПОБЕДИЛИ!');if(Turn == false) alert('ПОБЕДИЛИ КРЕСТЫ!');Won=true;}
 }
 
 </script>
