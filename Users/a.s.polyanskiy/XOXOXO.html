@@ -6,7 +6,7 @@
 
 <script>
 var Turn = true;
-function herak(id) 
+function handle(id) 
 {
   h = document.getElementById(id);
   if(Turn==true) h.innerHTML = "X";
@@ -43,21 +43,21 @@ function checkVictory()
 
 <table border="1">
 <tr>
- <td id=11  onclick="herak(11);checkVictory();">.</td>
- <td id=12  onclick="herak(12);checkVictory();">.</td>
- <td id=13  onclick="herak(13);checkVictory();">.</td>
+ <td id=11  onclick="handle(11);checkVictory();">.</td>
+ <td id=12  onclick="handle(12);checkVictory();">.</td>
+ <td id=13  onclick="handle(13);checkVictory();">.</td>
 </tr>
 
 <tr>
- <td id=21  onclick="herak(21);checkVictory();">.</td>
- <td id=22  onclick="herak(22);checkVictory();">.</td>
- <td id=23  onclick="herak(23);checkVictory();">.</td>
+ <td id=21  onclick="handle(21);checkVictory();">.</td>
+ <td id=22  onclick="handle(22);checkVictory();">.</td>
+ <td id=23  onclick="handle(23);checkVictory();">.</td>
 </tr>
 
 <tr>
- <td id=31  onclick="herak(31);checkVictory();">.</td>
- <td id=32  onclick="herak(32);checkVictory();">.</td>
- <td id=33  onclick="herak(33);checkVictory();">.</td>
+ <td id=31  onclick="handle(31);checkVictory();">.</td>
+ <td id=32  onclick="handle(32);checkVictory();">.</td>
+ <td id=33  onclick="handle(33);checkVictory();">.</td>
 </tr>
 
 
