@@ -1,0 +1,34 @@
+<script>
+function gc()
+{
+ alert('GC');
+}
+</script>
+<body onload="alert('Document load complete');"
+unload="gc();">
+<script>
+for(var i=0;i<1000;i++)
+ ;
+</script>
+<script>
+function getStr() {
+ alert("getStr() execute");
+ return "<h1> STRING</h1>";
+}
+function getStrUndefined() {
+ alert("getStrUndefined() execute");
+  return void 0;
+}
+</script>
+<h1 onclick="alert('I catch it');"> Click Me</h1>
+<a href="http://ya.ru">Go to yandex</a>
+<a href="javascript:new Date().toLocaleTimeString();">
+What time is it?
+</a>
+<a href="javascript:window.open('http://google.ru');">
+Open Window
+</a>
+<a href="javascript:getStr();void 0;">call getStr()</a>
+
+<a href="javascript:getStrUndefined();">call getStrUndefined()</a>
+</body>
