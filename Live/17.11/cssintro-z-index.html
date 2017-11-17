@@ -1,0 +1,57 @@
+<html>
+<head>
+ <title>CSS Intro (z-index)</title>
+ <style>
+   body {
+    background-color : green;
+    color:white;
+    font-size: 10pt;
+}
+   p {
+       font-size:2cm;
+}
+div {
+      position:absolute;
+      top:0px;
+      left:0px;
+       background-color:blue;
+}
+#tab1 {
+  background-color:red;
+  z-index:9
+}
+#tab2 {
+  background-color:magenta;
+  z-index:8
+}
+
+#tab3 {
+  background-color:gray;
+}
+</style>
+</head>
+<body>
+Text text text text
+<h1> This is header</h1>
+   <p> This is first paragraph</p>
+   <p> This is second paragraph</p>
+   <p> This is third paragraph</p>
+Text text text text
+<div id="tab1">
+   <p> This is first paragraph</p>
+   <p> This is second paragraph</p>
+   <p> This is third paragraph</p>
+</div>
+<div id="tab2">
+   <p> This is first paragraph</p>
+   <p> This is second paragraph</p>
+   <p> This is third paragraph</p>
+</div>
+<div id="tab3">
+   <p> This is first paragraph</p>
+   <p> This is second paragraph</p>
+   <p> This is third paragraph</p>
+</div>
+
+</body>
+</html>
