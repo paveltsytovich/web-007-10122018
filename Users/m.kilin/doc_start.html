@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet">-->
+    </head>
+    <script> 
+    var i = 0;
+    var x = 0;
+    var o = 0;
+    var c = 0;
+    function test() {
+        document.getElementById("text").innerHTML = "lalala";
+    }
+    function game() {
+        var tab = document.getElementsByTagName("td");
+        for (var i in tab)
+        {t = [1,10,1,10,100,10,1,10,1]
+    
+
+
+          
+            c = i;
+            tab[i].onclick = check;
+           
+        }
+    }
+    function check() {
+        
+        if (((i % 2) == 0) && (this.innerHTML == '.')) {
+          this.innerHTML = 'X';
+          x=x+c;
+        } 
+        if (((i % 2) == 1)&&(this.innerHTML =='.')) {
+            this.innerHTML = 'O';
+            o = o + c;
+        }
+        i++;
+        if ((o == 12) || (o == 102) || (o = 120)) { alert("o win"); }
+        if ((x == 12) || (x == 102) || (x = 120)) { alert("x win"); }
+        
+    }
+
+    </script>
+    <body onload="game();">
+    <table id = "xox">
+        <tr >
+            <td>.</td>
+            <td>.</td>
+            <td>.</td>
+        </tr>
+        <tr>
+            <td>.</td>
+            <td>.</td>
+            <td>.</td>
+        </tr>
+        <tr>
+            <td>.</td>
+            <td>.</td>
+            <td>.</td>
+        </tr>
+
+    </table>
+        <tr></tr>   
+
+    </body> 
+</html>
