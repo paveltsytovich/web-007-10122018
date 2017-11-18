@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<style>
+  body {
+      margin: 10px 10px;
+      background-color: #fff;
+  }   
+  p {
+      background-color: #aaa;
+      font-size: 16 
+  }
+  .tab {
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+  }
+  .active {
+      border: 1px solid salmon;
+      border-bottom: 1px solid #fff;
+  }
+  .tabContent {
+      width: 500px;
+      height: 100px;
+      border: 1px solid salmon;
+      position: relative;
+      top: -1px;
+      z-index: 1;
+      padding: 10px;
+  }
+  .hide {
+      display: none;
+  }
+  .show {
+      display: block;
+  }
+</style>
+<script>
+    /*function changeColor(name) {
+      var s = document.getElementById(name);
+      var color = "";
+      for (var i = 0; i<6; i++) {
+      color = color + Math.round(Math.random()*16).toString(16);
+      }
+      color = '#' + color;
+      s.style.backgroundColor = color;
+    }*/
+    var tab;
+    var tabContent;
+    window.onload = function () {
+        tab = document.getElementsByClassName('tab');
+        tabContent = document.getElementsByClassName('tabContent');
+        document.getElementById('main').onclick = function (event) {
+            var target = event.target;
+            if (target.className == 'tab') {
+                for (var i = 0; i < tab.length; i++) {
+                    if (target == tab[i]) {
+                        showTab(i);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    function hideTabs() {
+        for (var tabs of tabContent) {
+            tabs.classList.remove('show');
+            tabs.classList.add('hide');
+        }
+        for (var tabs of tab) {
+            tabs.classList.remove('active');
+        }
+    }
+    function showTab(tabNo) {
+        if (tabContent[tabNo].classList.contains('hide')) {
+            hideTabs();
+            tab[tabNo].classList.add('active');
+            tabContent[tabNo].classList.remove('hide');
+            tabContent[tabNo].classList.add('show');
+        }
+    }
+    function addTab() {
+        var up = document.getElementById('up');
+        var newTab = document.createElement("div");
+        newTab.innerHTML = Math.round(Math.random()*100).toString();
+        newTab.classList.add("tab");
+        up.appendChild(newTab);
+        var buttom = document.getElementById('buttom');
+        var newTab = document.createElement("div");
+        newTab.innerHTML = Math.round(Math.random() * 100).toString();
+        newTab.classList.add("tabContent");
+        newTab.classList.add("hide");
+        buttom.appendChild(newTab);
+        tab = document.getElementsByClassName('tab');
+        tabContent = document.getElementsByClassName('tabContent');
+
+    }
+
+        
+</script>
+<body id = "main">
+    <div id = "up">
+        <div class = "tab active">1</div>
+        <div class = "tab">2</div>
+        <div class = "tab">3</div>
+    </div>
+    <div id = "buttom">
+    <div class = "tabContent show">
+        <h1>Первая</h1>
+    </div>
+    <div class = "tabContent hide">
+        <h1>Вторая</h1>
+    </div>
+    <div class = "tabContent hide">
+        <h1>А это самая лучшая</h1>
+    </div>
+    </div>
+    <button onclick="addTab()">add new</button>
+</body>
+
+</html>  
