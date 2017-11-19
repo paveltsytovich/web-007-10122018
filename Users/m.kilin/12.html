@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
 
     <title>Document</title>
+    <script type="text/javascript" src="jss.js"></script>
 </head>
 <style>
   body {
@@ -42,7 +43,8 @@
   }
 </style>
 <script>
-    /*function changeColor(name) {
+
+    function changeColor(name) {
       var s = document.getElementById(name);
       var color = "";
       for (var i = 0; i<6; i++) {
@@ -50,7 +52,10 @@
       }
       color = '#' + color;
       s.style.backgroundColor = color;
-    }*/
+      jss.set('.active', {
+          'border-bottom-color' : color
+      })
+    }
     var tab;
     var tabContent;
     window.onload = function () {
@@ -99,6 +104,7 @@
         buttom.appendChild(newTab);
         tab = document.getElementsByClassName('tab');
         tabContent = document.getElementsByClassName('tabContent');
+        changeColor('main');
 
     }
 
@@ -121,7 +127,7 @@
         <h1>А это самая лучшая</h1>
     </div>
     </div>
-    <button onclick="addTab()">add new</button>
+    <button onclick="addTab()">add new + surprise</button>
 </body>
 
 </html>  
