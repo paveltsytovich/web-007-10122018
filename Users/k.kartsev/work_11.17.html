@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Work 2017.11.17</title>
+  <style>
+    body {
+      font-size: 35pt;
+      background-color: yellow;
+    }
+
+    button{
+      font-size: 25pt;
+      color: red;
+    }
+
+    .bigdiv{
+      width: 400pt;
+      height: 200pt;
+      position: absolute;
+      background-color: red;
+      z-index: 5;
+    }
+
+    .warn {
+      background-color: red;
+    }
+  </style>
+
+
+</head>
+<body>
+
+<div id="ButtonsHolder">
+  <button id="button_1" onclick="selectTab(this.id);">Tab 1</button>
+  <button id="button_2" onclick="selectTab(this.id);">Tab 2</button>
+  <button id="button_3" onclick="selectTab(this.id);">Tab 3</button>
+</div>
+<div>
+  <div id="tab_1" class="bigdiv" style="background-color:white">This is tab1</div>
+  <div id="tab_2" class="bigdiv" style="background-color:blue">This is tab2</div>
+  <div id="tab_3" class="bigdiv" style="background-color:red">This is tab3</div>
+</div>
+
+<div style="width:400pt;height:250pt"></div>
+
+<div id="Placeholder"></div>
+<button onclick="addParagraph();">Add paragraph</button>
+<button onclick="addScript();">Add script</button>
+
+<span class="warn">Some text</span>
+
+<script>
+var maxIndex=10;
+function selectTab(id) {
+  var idNum = id.split('_')[1];
+  var idTab = "tab_" + idNum;
+  document.getElementById(idTab).style.zIndex=maxIndex++;
+}
+
+var paragraphCounter = 0;
+function addParagraph() {
+  var placeHolder = document.getElementById("Placeholder");
+  var newElement = document.createElement("p");
+  newElement.style.color = "blue";
+  newElement.style.backgroundColor = "green";
+  newElement.innerHTML = ++paragraphCounter;
+  placeHolder.appendChild(newElement);
+}
+
+
+function addScript() {
+  var placeHolder = document.getElementById("Placeholder");
+  var newElement = document.createElement("script");
+  newElement.innerHTML = "alert('Achtung');";
+  placeHolder.appendChild(newElement);
+}
+
+</script>
+
+</body>
+</html>
