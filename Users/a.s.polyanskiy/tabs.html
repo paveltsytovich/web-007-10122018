@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Tabs</title>
+ <style>
+    body {
+       background-color : lightgrey;
+       font-size: 10pt;
+     }
+    div {
+       position:absolute;
+       font: tahoma;
+       top:150pt;
+       left:10pt;
+       background-color:grey;
+       height: 400pt;
+       width: 600pt;
+     }
+   #tab0 {
+         z-index:2
+       }
+</style>
+</head>
+<body>
+<h3>Наш портал посвящен современной русской словесности.</h>
+  <p> Без пруда не вытащишь и рыбку из него. </br>Но это не точно</p>
+  <table border="6">
+<tr>
+ <td id=butt1  onclick="kek('tab1');">Юрий Вафин. Об утре.</td>
+ <td id=butt2  onclick="kek('tab2');">Юрий Вафин. К мужику.</td>
+ <td id=butt3  onclick="kek('tab3');">Денис Кузнецов. Наблюдение.</td>
+</tr>
+</table>
+<div id="tab0">
+</div>
+<div id="tab1">
+  <h3>Юрий Вафин</h>
+    <p>БЫВАЕТ, ЧТО С САМОГО УТРА РУКИ В БОКИ И ГАРЦЕВАТЬ ПЕРЕД ЗЕРКАЛОМ ПО ТОРС- ВОТ КАКОЙ СЛАВНЫЙ ПАЦАН В ХАТЕ ОБИТАЕТ!</p>
+    <p>А БЫВАЕТ, ЧТО ЧЕРПАЕШЬ ГУГНИВЫЕ РАЗМОКШИЕ ХЛОПИЯ ИЗ ТАРЕЛКИ И СИПИШЬ В НОС: "КОГДА Ж ГОСПОДЬ ПРИБЕРЕТ МЕНЯ К СЕБЕ" </p>
+    <p>РАЗНЫЕ УТРА БЫВАЮТ, А ОТЧЕГО РАЗНИЦА - МНЕ НЕВЕДОМО.</p>
+</div>
+<div id="tab2">
+  <h3>Юрий Вафин</h>
+   <p> ТЫ МУЖИК? Я, БРАТАН, ВИЖУ, ЧТО ТЫ ТОЧНО МУЖИК.</p>
+   <p> ДАЙ КОСАРЬ ДО ЧЕТВЕРГА ПО-МУЖИЦКИ?</p>
+   <p> ЕСЛИ ТЫ МУЖИК, КОНЕЧНО. ЕСЛИ НЕ МУЖИК - НЕ ДАВАЙ, БЕЗ ПРЕТЕНЗИЙ ВООБЩЕ.</p>
+</div>
+<div id="tab3">
+  <h3>Денис Кузнецов</h>
+   <p> Я заметил, что школьники стали активно посещать метрополитен со своими сухариками и чипсами</p>
+</div>
+
+<script>
+  var lolka = 3;
+  function kek(i){
+    h=document.getElementById(i);
+    h.style.zIndex=lolka;
+    lolka=lolka+1;
+  }
+</script>
+
+
+</body>
+</html>
