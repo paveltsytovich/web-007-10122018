@@ -1,0 +1,40 @@
+<div id="1" style="background-color:yellow;margin:10mm;width:300px;height:300px">
+ ======================
+ <p id="2" style="background-color:green">TEXT</p>
+ ======================
+</div>
+<script>
+
+function HandleMouseOut(event)
+{
+  var sender = event.target;
+  sender.style.backgroundColor = "gray";
+}
+
+function HandleMouseOver(event)
+{
+   var sender = event.target;
+   sender.style.backgroundColor = "magenta";
+}
+
+function HandleMouseEnter(event)
+{
+ var para = document.getElementById("2");
+ para.innerHTML = "mouse in div";
+}
+function HandleMouseLeave(event)
+{
+ var para = document.getElementById("2");
+ para.innerHTML = "mouse out from div";
+}
+
+var myDiv = document.getElementById("1");
+myDiv.addEventListener("mouseover",HandleMouseOver,false);
+myDiv.addEventListener("mouseout",HandleMouseOut,false);
+myDiv.addEventListener("mouseleave",HandleMouseLeave,false);
+myDiv.addEventListener("mouseenter",HandleMouseEnter,false);
+
+var para = document.getElementById("2");
+para.addEventListener("mouseover",HandleMouseOver,false);
+para.addEventListener("mouseout",HandleMouseOut,false);
+</script>

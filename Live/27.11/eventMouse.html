@@ -1,0 +1,18 @@
+<p onmousedown="HandleMouseDown();" onmouseup="HandleMouseUp()" onclick="HandleClick()">TEXT</p>
+<script>
+var state="";
+
+function HandleMouseDown()
+{
+  state += " MouseDown ";
+}
+function HandleMouseUp()
+{
+  state += " Mouse Up ";
+}
+function HandleClick()
+{
+  state += " Click ";
+  alert(state);
+} 
+</script>
