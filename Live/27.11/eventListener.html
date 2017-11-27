@@ -1,0 +1,21 @@
+<input value="Press me" onclick="alert('click');" type="button"/>
+<input value="Assign handler" onclick="assignHandler();" type="button" />
+<input value="Remove handler" onclick="removeHandler();" type="button"/>
+<input value="Please click" id="SampleButton" type="button"/>
+
+<script>
+function Handler()
+{
+ alert("!!!");
+}
+function assignHandler()
+{
+  var el = document.getElementById("SampleButton");
+  el.addEventListener("click",Handler,false);
+}
+function removeHandler()
+{
+  var el = document.getElementById("SampleButton");
+  el.removeEventListener("click",Handler);
+}
+</script>
