@@ -1,0 +1,27 @@
+<div id="1" style="background-color:green;">
+ ***************
+ <div id="2" style="background-color:blue">
+   ================
+  <p id="3" style="background-color:red">TEXT</p>
+   =====================
+ </div>
+  ******************
+</div>
+
+<script>
+
+function Handler(event)
+{
+ alert(event.currentTarget+":"+event.currentTarget.innerHTML);
+}
+
+
+var topDiv = document.getElementById("1");
+var innerDiv = document.getElementById("2");
+var para = document.getElementById("3");
+
+topDiv.addEventListener("click",Handler,true);
+innerDiv.addEventListener("click",Handler,true);
+para.addEventListener("click",Handler,true);
+
+</script>

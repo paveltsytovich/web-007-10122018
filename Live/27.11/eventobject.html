@@ -1,0 +1,19 @@
+<div id="HandlerDiv">
+ <div>
+    <div>
+       <input value="Press me" type="button"/>
+    <div>
+ </div>
+</div>
+<script>
+var x = document.getElementById("HandlerDiv");
+x.addEventListener("click",Handler,false);
+
+function Handler(event)
+{
+  var sender = event.target;
+  alert(sender.tagName);
+  var source = event.currentTarget;
+  alert(source.tagName);
+}
+</script>
