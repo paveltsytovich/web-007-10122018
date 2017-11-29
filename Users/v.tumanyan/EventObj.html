@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Event</title>
+</head>
+<body>
+
+<div id="handlerDiv">
+<div>
+ <div>
+  <div>
+   <input value="Press" type="button"/>
+  </div>
+ </div>
+</div>
+</div>
+
+<script>
+ var x = document.getElementById("handlerDiv");
+ x.addEventListener("click",handler,false)
+ function handler(event){
+  var sender = event.target;
+  alert(sender.tagName);
+  var source = event.currentTarget;
+  alert(source.tagName);
+ }
+</script>
+
+</body>
+</html>
