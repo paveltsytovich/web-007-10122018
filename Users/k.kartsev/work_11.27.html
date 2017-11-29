@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>Work 2017.11.27</title>
+</head>
+<body>
+
+<input value="Press me" onclick="alert('click me')" type="button"/>
+<input value="Assign handler" onclick="assignHandler()" type="button"/>
+<input value="Remove handler" onclick="removeHandler()" type="button"/>
+<input value="Please click" id="SampleButton" type="button"/>
+
+<script>
+
+  function someHandler()
+  {
+    alert('Oh my God!');
+  }
+
+  function assignHandler()
+  {
+    var elem = document.getElementById("SampleButton");
+    //elem.onclick = function() {alert('UAAAAAAA')};
+    //elem.addEventListener("click", function() {alert('UAAAAAAA')}, false);
+    elem.addEventListener("click", someHandler, false);
+  }
+
+  function removeHandler()
+  {
+    var elem = document.getElementById("SampleButton");
+    //elem.onclick = null;
+    //elem.removeEventListener("click", function() {alert('UAAAAAAA')});
+    elem.removeEventListener("click", someHandler);
+  }
+
+  // TODO: Implement ability to add and remove event handler many times
+</script>
+
+<br><br>
+
+<div id="HandlerDiv">
+  <div>
+    <div>
+      <input value="Press Me" type="button"/>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  var x = document.getElementById("HandlerDiv");
+  x.addEventListener("click", myHandler, false);
+
+  function myHandler(event)
+  {
+    var sender = event.target;
+    var source = event.currentTarget;
+    alert("Sender: " + sender.tagName + ", Source: " + source.tagName);
+  }
+
+</script>
+
+<br><br>
+
+<table id="MyTable" border="1">
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+</table>
+
+<script>
+  document.getElementById("MyTable").addEventListener("click", TableHandler, false);
+
+  function TableHandler(event)
+  {
+      var sender = event.target;
+      if(sender.tagName == "TD")
+        sender.style.backgroundColor = "red";
+  }
+</script>
+
+<br><br>
+
+<div id="X1" style="background-color:green">
+  +++++++++++
+  <div id="X2" style="background-color:blue">
+    -----------
+    <p id="X3" style="background-color:red">TEXT</p>
+    -----------
+  </div>
+  +++++++++++
+</div>
+
+<script>
+  var topDiv = document.getElementById("X1");
+  var innerDiv = document.getElementById("X2");
+  var para = document.getElementById("X3");
+
+  topDiv.addEventListener("click", qwHandler, true);
+  innerDiv.addEventListener("click", qwHandler, true);
+  para.addEventListener("click", qwHandler, true);
+
+  function qwHandler(event)
+  {
+    alert(event.currentTarget.tagName + ":" + event.currentTarget.innerHTML);
+  }
+</script>
+
+<br><br>
+
+<div style="margin:10mm;background-color:yellow;width:200px;height:200px" id="YellowDiv">
+  ***
+</div>
+
+<script>
+  document.getElementById("YellowDiv").addEventListener("mousemove", yellowHandler, false);
+
+  function yellowHandler(event)
+  {
+    event.target.innerHTML = "x: " + event.clientX + ", y: " + event.clientY;
+  }
+</script>
+
+</body>
+</html>
