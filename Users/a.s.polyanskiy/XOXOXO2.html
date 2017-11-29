@@ -1,15 +1,56 @@
 <html>
 <head>
 <title>a.s.polyanskiy</title>
+<style type="text/css">
+ td {
+  height: 20;
+  width: 20;
+ }
+</style>
 </head>
 <body>
+
+<h2 id="Turner"> Ходят кресты </h2>
+
+<table id="table1" border="1">
+<tr>
+ <td id=11>.</td>
+ <td id=12>.</td>
+ <td id=13>.</td>
+</tr>
+
+<tr>
+ <td id=21>.</td>
+ <td id=22>.</td>
+ <td id=23>.</td>
+</tr>
+
+<tr>
+ <td id=31>.</td>
+ <td id=32>.</td>
+ <td id=33>.</td>
+</tr>
+
+</table>
 
 <script>
 var Turn = true;
 var Won = false;
-function herak(id) 
+function HandleMouseOut(event)
 {
-  h = document.getElementById(id);
+  var sender = event.target;
+  if(sender.innerHTML=='.'||sender.innerHTML=='X'||sender.innerHTML=='O')sender.style.backgroundColor = "white";
+}
+
+function HandleMouseOver(event)
+{
+   var sender = event.target;
+   if(sender.innerHTML=='.' && Won == false)sender.style.backgroundColor = "lightblue";
+   if(sender.innerHTML=='X'||sender.innerHTML=='O'||(Won == true && sender.innerHTML=='.')) sender.style.backgroundColor = "gray";
+}
+function oneTurn(event)
+{
+  h = event.target;
   if(Won==false && h.innerHTML == ".")
   {
     if(Turn==true) h.innerHTML = "X";
@@ -30,49 +71,27 @@ function checkVictory()
   h31 = document.getElementById(31).innerHTML;
   h32 = document.getElementById(32).innerHTML;
   h33 = document.getElementById(33).innerHTML;
-  
-  if((h11==h12 && h13==h12 && h11 != ".") || 
-     (h21==h22 && h23==h22 && h21 != ".") || 
-	 (h31==h32 && h33==h32 && h31 != ".") || 
-	 (h11==h21 && h31==h21 && h11 != ".") || 
+
+  if((h11==h12 && h13==h12 && h11 != ".") ||
+     (h21==h22 && h23==h22 && h21 != ".") ||
+	 (h31==h32 && h33==h32 && h31 != ".") ||
+	 (h11==h21 && h31==h21 && h11 != ".") ||
 	 (h12==h22 && h32==h22 && h12 != ".") ||
 	 (h13==h23 && h33==h23 && h13 != ".") ||
 	 (h11==h22 && h33==h22 && h11 != ".") ||
 	 (h13==h22 && h31==h22 && h13 != ".")) {if(Turn == true)alert('КРУЖОЧКИ ПОБЕДИЛИ!');if(Turn == false) alert('ПОБЕДИЛИ КРЕСТЫ!');Won=true;}
 }
+function Handler(event){
+  oneTurn(event);
+  checkVictory();
+}
+
+var tab = document.getElementById("table1");
+tab.addEventListener("mouseover",HandleMouseOver,false);
+tab.addEventListener("mouseout",HandleMouseOut,false);
+tab.addEventListener("click",Handler,false);
 
 </script>
-
-<h2 id="Turner"> Ходят кресты </h2>
-
-<table border="1">
-<tr>
- <td id=11  onclick="herak(11);checkVictory();">.</td>
- <td id=12  onclick="herak(12);checkVictory();">.</td>
- <td id=13  onclick="herak(13);checkVictory();">.</td>
-</tr>
-
-<tr>
- <td id=21  onclick="herak(21);checkVictory();">.</td>
- <td id=22  onclick="herak(22);checkVictory();">.</td>
- <td id=23  onclick="herak(23);checkVictory();">.</td>
-</tr>
-
-<tr>
- <td id=31  onclick="herak(31);checkVictory();">.</td>
- <td id=32  onclick="herak(32);checkVictory();">.</td>
- <td id=33  onclick="herak(33);checkVictory();">.</td>
-</tr>
-
-
-</table>
-
-
-</table>
-
-
-
-
 
 
 </body>
