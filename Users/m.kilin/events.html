@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script>
+    var td
+    function init() {
+        /*td = document.getElementsByTagName("td");
+        for (el of td) {
+            el.onclick = function ()
+            {
+                this.style.color = "red"
+                //alert("efgh");
+            }
+        }*/
+        /*var myTable = document.getElementById("tab");
+        myTable.onclick = function(event) {
+            if (event.target.tagName == "TD") {
+                event.target.style.color = "red"
+            }
+        }*/
+        $("table").click(
+            function (e) {
+                e.target.style.color = "red"   
+            }
+        )
+    }
+</script>
+</head>
+<body onload="init();">
+<!--<div>
+    <div>
+        <div>
+            <input value="Please" id="Simple" type="Button" />
+        </div>
+    </div>
+</div>
+    
+<script> 
+    var el = document.getElementById("Simple");
+    var b = function () {
+        alert("Help me");
+    }
+    var a = function () {
+        alert("Help me 2");
+    }
+    el.addEventListener("click", a, true)
+    el.addEventListener("click", b, true)
+</script> -->
+<table border="2" id="tab">
+    <tr>
+        <td> 1 </td>
+        <td> 2 </td>
+        <td> 3 </td>
+    </tr>
+    <tr>
+        <td> 4 </td>
+        <td> 5 </td>
+        <td> 6 </td>
+    </tr>
+    <tr>
+        <td> 7 </td>
+        <td> 8 </td>
+        <td> 9 </td>
+    </tr>
+</table>
+</body>
+
+</html>
