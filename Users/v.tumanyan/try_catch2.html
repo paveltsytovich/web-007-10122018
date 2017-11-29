@@ -6,6 +6,31 @@
 
 <script>
 
+var a=["a",1];
+document.write(a);
+document.write("<br/>");
+
+var tp=typeof a[0];
+try {
+a.forEach(
+ function true_type(val)
+  {
+   var tp2=typeof val;
+   if (tp!=tp2)
+   {
+   throw new Error("Not an array!");
+   }
+   //document.write(typeof val);
+  }
+ )
+ }
+catch(e) {
+alert(e.message);
+} 
+//document.write(tp); 
+
+
+/*
 function f(x)
  {
    document.write("<h1>!!!</h1>");
@@ -16,12 +41,14 @@ try
  {
  setTimeout(f,5000);
  document.write("done");
+ document.write("<br/>");
+ document.write("done2");
  }
 catch(e)
  {
  alert("Catch");
  } 
- 
+*/
 </script>
 <body>
 </body>
