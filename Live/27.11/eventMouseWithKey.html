@@ -1,0 +1,28 @@
+<p id="para" onmousedown="HandleMouseDown();" onmouseup="HandleMouseUp()">TEXT</p>
+<script>
+var state="";
+
+function HandleMouseDown()
+{
+  state += " MouseDown ";
+}
+function HandleMouseUp()
+{
+  state += " Mouse Up ";
+}
+function HandleClick(event)
+{
+  state += " Click ";
+  if(event.altKey)
+   state += " Alt ";
+  if(event.shiftKey)
+   state += " Shift ";
+  if(event.ctrlKey)
+   state += " Ctrl ";
+  alert(state);
+  state = "";
+}
+
+var para = document.getElementById("para");
+para.addEventListener("click",HandleClick,false); 
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+<script>
+    var a = []
+    function assignHandler() {
+        var el = document.getElementById("SampleButton");
+        var newHandler =  function () {
+            alert("!!!");
+        }
+        a.push(newHandler)
+        el.addEventListener("click", newHandler, false);
+    }
+    function removeHandler() {
+        var el = document.getElementById("SampleButton");
+        el.removeEventListener("click", a.pop());
+    }
+    
+</script>
+    </head>
+    <body> 
+    <input value="Assign handler" onclick="assignHandler();" type="button" />
+    <input value="Remove handler" onclick="removeHandler();" type="button" />
+    <input value="Please click" id="SampleButton" type="button" />
+    </body>
+</html>
