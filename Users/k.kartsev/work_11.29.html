@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>Work 2017.11.29</title>
+</head>
+<body>
+
+  <table border="1" id = "MyTable">
+  <tr height="30">
+   <td width="30" align="center" id="11"> </td>
+   <td width="30" align="center" id="12"> </td>
+   <td width="30" align="center" id="13"> </td>
+  </tr>
+
+  <tr height="30">
+   <td align="center" id="21"></td>
+   <td align="center" id="22"></td>
+   <td align="center" id="23"></td>
+  </tr>
+
+  <tr height="30">
+   <td align="center" id="31"></td>
+   <td align="center" id="32"></td>
+   <td align="center" id="33"></td>
+  </tr>
+
+  <script>
+    document.getElementById("MyTable").addEventListener("click", TableClicked, false);
+    document.getElementById("MyTable").addEventListener("mouseover", TableMouseOver, false);
+    document.getElementById("MyTable").addEventListener("mouseout", TableMouseOut, false);
+
+    var needX = true;
+    var winner = "";
+
+    function TableClicked(event)
+    {
+        var sender = event.target;
+
+        if(sender.innerText || winner)
+          return;
+
+        if(needX)
+          sender.innerHTML = "X";
+        else
+          sender.innerHTML = "O";
+
+        winner = checkWinner();
+        if (winner)
+          alert ("You win!");
+
+        needX = !needX;
+        TableMouseOver(event);
+    }
+
+    function TableMouseOver(event)
+    {
+        var sender = event.target;
+        if(sender.tagName == "TD")
+        {
+          if(winner)
+            sender.style.backgroundColor = "white";
+          else if(sender.innerText)
+            sender.style.backgroundColor = "red";
+          else
+            sender.style.backgroundColor = "lightgreen";
+        }
+
+    }
+
+    function TableMouseOut(event)
+    {
+        var sender = event.target;
+        if(sender.tagName == "TD")
+          sender.style.backgroundColor = "white";
+    }
+
+
+    function checkWinner() {
+
+      if (document.getElementById("11").innerText && document.getElementById("11").innerText == document.getElementById("12").innerText
+            && document.getElementById("11").innerText == document.getElementById("13").innerText)
+        return true;
+      if (document.getElementById("21").innerText && document.getElementById("21").innerText == document.getElementById("22").innerText
+              && document.getElementById("21").innerText == document.getElementById("23").innerText)
+        return true;
+      if (document.getElementById("31").innerText && document.getElementById("31").innerText == document.getElementById("32").innerText
+              && document.getElementById("31").innerText == document.getElementById("33").innerText)
+        return true;
+
+      if (document.getElementById("11").innerText && document.getElementById("11").innerText == document.getElementById("21").innerText
+            && document.getElementById("11").innerText == document.getElementById("31").innerText)
+        return true;
+      if (document.getElementById("12").innerText && document.getElementById("12").innerText == document.getElementById("22").innerText
+              && document.getElementById("12").innerText == document.getElementById("32").innerText)
+        return true;
+      if (document.getElementById("13").innerText && document.getElementById("13").innerText == document.getElementById("23").innerText
+              && document.getElementById("13").innerText == document.getElementById("33").innerText)
+        return true;
+
+      if (document.getElementById("11").innerText && document.getElementById("11").innerText == document.getElementById("22").innerText
+            && document.getElementById("11").innerText == document.getElementById("33").innerText)
+        return true;
+      if (document.getElementById("13").innerText && document.getElementById("13").innerText == document.getElementById("22").innerText
+            && document.getElementById("13").innerText == document.getElementById("31").innerText)
+        return true;
+
+
+      return false;
+    }
+
+  </script>
+
+
+
+</body>
+</html>

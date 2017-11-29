@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Click</title>
+</head>
+<body 
+ onload="alert('Document loaded!');"
+ onunload="alert('Document unloaded!');"
+>
+<script>
+ for(var i=0;i<1000000;i++)
+ ;
+</script>
+
+<script>
+ function getstr() {
+ alert("Function ex!");
+ //return "<h1> STRING </h1>";
+ return undefined;//void 0;
+ }
+</script>
+
+<h1 onclick="alert('Caught!');">Click Me!</h1>
+<a href="http://ya.ru">Yandex</a>
+<br></br>
+<a href="javascript:new Date().toLocaleTimeString();void 0;">Time</a>
+<br></br>
+<a href="javascript:window.open('about:blank');">New window</a>
+<br></br>
+<a href="javascript:window.open('about:blank'); void 0;">Not new window</a>
+
+<br></br>
+<a href="javascript:getstr();">Call str</a>
+
+</body>
+</html>

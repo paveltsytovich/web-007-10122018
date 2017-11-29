@@ -6,25 +6,34 @@
 
 <script>
 
-var a=["a","1",3];
+var a=["a","1","3"];
 
-var tp=typeof a[0];
-try {
-a.forEach(
- function true_type(val)
-  {
-   var tp2=typeof val;
-   if (tp!=tp2)
+/*
+function array_type(ar)
+{
+ var tp=typeof ar[0];
+ try {
+ ar.forEach(
+  function true_type(val)
    {
-   throw new Error("Not same type!");
+    var tp2=typeof val;
+    if (tp!=tp2)
+    {
+    throw new Error("Not same type!");
+    }
    }
-  }
- );
-alert("Same type!"); 
+  );
+ alert("Same type!"); 
+ }
+ catch(e) {
+ alert(e.message);
+ } 
 }
-catch(e) {
-alert(e.message);
-} 
+
+array_type(a);
+*/
+ alert(a.valueOf()); 
+
 
 </script>
 </body>

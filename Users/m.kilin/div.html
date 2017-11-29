@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<style>
+     div {
+      background-color: rgb(80, 166, 252);
+      font-size: 16;
+      width: 300px;
+      height: 300px;
+  }
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+</style>
+<script>
+      function Dialog(f1, f2, el) {
+        el.classList.add("show")
+        buttons = el.childNodes
+        for (button of buttons) {
+            if (button.id == 'ok') {
+                button.onclick = f1
+            }
+            if (button.id == 'cancel') {
+                button.onclick = f2
+            }
+        }
+        }  
+        function init() {
+            
+
+        }
+</script>
+<body onload="init();">
+    <div id = "d" class="hide"> 
+        <button id = "ok">Ok</button>
+        <button id = "cancel">Cancel</button>
+    </div> 
+    <button onclick="Dialog(function(){alert('ok')}, function () { alert('cancel') },document.getElementById('d'));">Run</button>
+</body>
+</html>
