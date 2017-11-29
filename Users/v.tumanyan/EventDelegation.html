@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Event</title>
+</head>
+<body>
+
+<table id="tb" border="1">
+<tr>
+ <td>1</td>
+ <td>2</td>
+ <td>3</td>
+</tr>
+<tr>
+ <td>4</td>
+ <td>5</td>
+ <td>6</td>
+</tr>
+<tr>
+ <td>7</td>
+ <td>8</td>
+ <td>9</td>
+</tr>
+</table>
+
+
+<script>
+ var table = document.getElementById("tb");
+ table.addEventListener("click",handler,false)
+ function handler(event){
+  var sender = event.target;
+  if(sender.tagName == "TD"){
+   sender.style.backgroundColor ="red";
+   sender.innerHTML = event.type;
+  }
+ }
+</script>
+
+</body>
+</html>

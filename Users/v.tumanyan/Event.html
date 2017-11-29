@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Event</title>
+</head>
+<body>
+
+<input value="Press me" onclick="alert('!!!');" type="button"/>
+<input value="Ass sign" onclick="assign();" type="button"/>
+<input value="Un Ass sign" onclick="unassign();" type="button"/>
+<input value="Sample butt" id="butt" type="button"/>
+
+
+<script>
+ function handler(){
+  alert('Butt!');
+ }
+ function assign(){
+  var el=document.getElementById("butt");
+  el.addEventListener("click",handler,false);
+ }
+ function unassign(){
+  var el=document.getElementById("butt");
+  el.removeEventListener("click",handler);
+ }
+</script>
+
+</body>
+</html>
