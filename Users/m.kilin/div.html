@@ -23,12 +23,12 @@
       function Dialog(f1, f2, el) {
         el.classList.add("show")
         buttons = el.childNodes
-        for (button of buttons) {
-            if (button.id == 'ok') {
-                button.onclick = f1
+        for (i in buttons) {
+            if (buttons[i].id == 'ok') {
+                buttons[i].onclick = f1
             }
-            if (button.id == 'cancel') {
-                button.onclick = f2
+            if (buttons[i].id == 'cancel') {
+                buttons[i].onclick = f2
             }
         }
         }  

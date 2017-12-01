@@ -1,0 +1,41 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="text/css"/>
+</head>
+<body>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+
+<div id="PlaceholderDialog">
+ <p>This is dialog panel for demo</p>
+ User name <input name="User" id="User" />
+ Birthday <input id="birthDay" />
+</div>
+<script>
+$(function() {
+ $('#birthDay').datepicker();
+ $('#PlaceholderDialog').dialog({
+   modal : true,
+   buttons : {
+               "Ok" : function() {
+                   var text = $('#User').val();
+                   alert(text);
+                   $(this).dialog("close");
+                 },
+               Cancel : function() {
+                    $(this).dialog("close");
+                }
+             }
+
+});
+});
+</script>
+</body>
+</html>

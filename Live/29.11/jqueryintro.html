@@ -1,0 +1,23 @@
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<div>
+ <p id="test"> Test test test</p>
+ <button id="btn">Press me</button>
+</div>
+<script>
+ $(function() {
+//Init function
+   $('#btn').click(function() {
+   //$('#test').text('clicked');
+   //$('#test').attr('align','right');
+   //$('#test').css('color','red');  
+   var para  = $('#test');
+   para.text('clicked');
+   para.attr('align','right');
+   para.css('color','red');
+}
+);
+} );
+</script>

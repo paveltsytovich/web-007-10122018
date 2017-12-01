@@ -1,0 +1,38 @@
+<html>
+<body>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<form id="UserForm" method="GET" action="http://your-web-server-address/demo-form.php">
+Please input your name<input type="text" id="userName" name="userName" placeholder="your name"/>
+Your CVS please <input type="password" id="userPassword" name="userPassword" maxlength="3"/>
+<input type="submit" value="Send It"/>
+<script>
+function ValidateText() {
+  var userName = $('#userName').val();
+  return userName.length > 5;
+}
+$(function() {
+
+$('#UserForm').submit(function(e) {
+
+   if(!ValidateText())
+    {
+      $('#userName').css('background-color','red');
+      e.preventDefault();
+    }
+    else
+       {
+         $('#userName').css('background-color','white');
+       }
+ }
+);
+
+}
+);
+
+</script>
+</form>
+</body>
+</html>
