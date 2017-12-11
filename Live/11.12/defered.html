@@ -1,0 +1,17 @@
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<div id="complete"/></div>
+<script>
+function async()
+{
+ d = $.Deferred();
+ setTimeout(function() {d.resolve();},3000);
+ return d.promise();
+}
+
+var x = async().done(function() { $("#complete").append('time is done');});
+
+
+</script>

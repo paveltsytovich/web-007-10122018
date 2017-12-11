@@ -1,0 +1,24 @@
+<div Id="Placeholder"></div>
+<script>
+
+function GetText(callback)
+{
+ var xhr = new XMLHttpRequest();
+ xhr.open('GET','http://item74.ru/echo.php');
+ xhr.onreadystatechange = function() {
+  if(xhr.readyState === 4)
+   {
+     if(xhr.status === 200)
+       callback(xhr.responseText); 
+   }
+  var placehold = document.getElementById("Placeholder");
+  placehold.innerHTML = placehold.innerHTML + xhr.readyState + "<br/>";
+ }
+ xhr.send();
+}
+//----------------------------------
+
+GetText(function (msg) {
+   alert(msg);
+});
+</script>
