@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>sinux</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="jquery-3.2.1.js"></script>
+        <style>
+        div {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background-color: rgb(24, 94, 163)
+
+        }
+        </style>
+    </head>
+    <script>
+    var a; 
+    $.getJSON("http://item74.ru/web-007.php?cmd=sin", function (data) {
+      var b = 0;
+      for (a of data) {
+
+        var elem = document.createElement("div");
+        elem.style.top = 100-(a*100) + "px";
+        elem.style.left =(b++)*10+ "px";
+        document.body.appendChild(elem);
+
+      }
+
+    });
+    </script>
+    <body>
+      
+    </body>
+    <script>
+      
+    </script>
+</html>
