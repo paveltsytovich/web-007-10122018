@@ -14,8 +14,8 @@ var a2 = $.Deferred();
 $('#d1').slideUp(2000,function() { a1.resolve();});
 $('#d2').fadeOut(4000,function() { a2.resolve();});
 
-//a1.done(function() { alert('a1');});
-//a2.done(function() { alert('a2');});
+a1.done(function() { alert('a1');});
+a2.done(function() { alert('a2');});
 
 $.when(a1,a2).done(function() { alert('Complete');});
 </script>
