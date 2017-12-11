@@ -20,10 +20,17 @@
     $.getJSON("http://item74.ru/web-007.php?cmd=sin", function (data) {
       var b = 0;
       for (a of data) {
-
         var elem = document.createElement("div");
         elem.style.top = 100-(a*100) + "px";
         elem.style.left =(b++)*10+ "px";
+        document.body.appendChild(elem);
+      }
+      var b = b*2-1;
+      for (a of data) {
+
+        var elem = document.createElement("div");
+        elem.style.top = 100-(a*100) + "px";
+        elem.style.left =(b--)*10+ "px";
         document.body.appendChild(elem);
 
       }

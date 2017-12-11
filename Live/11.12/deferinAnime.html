@@ -1,0 +1,21 @@
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<div id="d1" style="width:100px;height:100px;background:red;">1</div>
+<div id="d2" style="width:100px;heigth:100px;background:green;">2</div>
+
+<script>
+
+var a1 = $.Deferred();
+var a2 = $.Deferred();
+
+$('#d1').slideUp(2000,function() { a1.resolve();});
+$('#d2').fadeOut(4000,function() { a2.resolve();});
+
+a1.done(function() { alert('a1');});
+a2.done(function() { alert('a2');});
+
+$.when(a1,a2).done(function() { alert('Complete');});
+</script>

@@ -1,0 +1,9 @@
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<div id="complete"/></div>
+<script>
+$.when($.get('/test.php'),$.post('/post.php')).done(function(args1,args2) {
+   alert('load is completed');
+});
