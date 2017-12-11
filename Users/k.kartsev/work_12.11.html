@@ -1,0 +1,55 @@
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<div id="PlaceHolder"></div>
+
+<form id="CalculatorForm">
+ <p><b>Калькулятор</b></p>
+ <p><input type="text" name="op1"></p>
+ <p><input type="radio" name="act" value="1" checked>+
+ <input type="radio" name="act" value="2">-
+ <input type="radio" name="act" value="3">*</p>
+ <p><input type="text" name="op2"></p>
+ <p><input type="button" value="Посчитать" onclick="calculate()"></p>
+</form>
+
+
+<script>
+
+
+function calculate()
+{
+  var args = $('#CalculatorForm').serialize();
+  $.get("http://item74.ru/web-007.php?cmd=calc&" + args, function(data)
+                                              { alert(data) }
+      );
+}
+
+function GetText(callback)
+{
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET","http://item74.ru/echo.php");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4)
+    {
+      if (xhr.status === 200)
+        callback(xhr.responseText);
+    }
+    var placeHolder = document.getElementById("PlaceHolder");
+    placeHolder.innerHTML = placeHolder.innerHTML + xhr.readyState + "<br/>";
+
+  }
+  xhr.send();
+}
+
+
+// GetText(function(msg) {alert(msg)});
+
+/*$.get("http://item74.ru/echo.php?k=2&m=4", function(data)
+                                            { alert(data) }
+    );
+*/
+
+</script>
