@@ -1,0 +1,108 @@
+<html>
+
+<head>
+    <title>Async</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+    <script>
+        /*function getText(callback) {
+                                                                                                                                                                                                                                                                                                                                                    var request = new XMLHttpRequest();
+
+                                                                                                                                                                                                                                                                                                                                                    request.open('GET', 'http://item74.ru/echo.php');
+
+                                                                                                                                                                                                                                                                                                                                                    request.onreadystatechange = function () {
+                                                                                                                                                                                                                                                                                                                                                        if (request.readyState === 4) {
+
+                                                                                                                                                                                                                                                                                                                                                            if (request.status === 200) {
+                                                                                                                                                                                                                                                                                                                                                                callback(request.responseText);
+                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                                                                                                                                        var placeholder = document.getElementById('placeholder');
+                                                                                                                                                                                                                                                                                                                                                        placeholder.innerHTML = placeholder.innerHTML + request.readyState + '<br>';
+                                                                                                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                                                                                                    request.send();
+                                                                                                                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                                                                                                                getText(function (msg) {
+                                                                                                                                                                                                                                                                                                                                                    alert(msg);
+                                                                                                                                                                                                                                                                                                                                                });*/
+        /*$.get('http://item74.ru/web-007.php?cmd=calc&op1=2&op2=3&act=1', function (data) {
+            var placeholder = document.getElementById('placeholder');
+            placeholder.innerHTML = placeholder.innerHTML + data + '<br>';
+        });
+
+        $.get('http://item74.ru/web-007.php?cmd=sin', function (data) {
+            var placeholder = document.getElementById('placeholder2');
+            placeholder.innerHTML = placeholder.innerHTML + data + '<br>';
+        });*/
+
+        function doit() {
+            var op1 = $('#op1').val();
+            var op2 = $('#op2').val();
+            var op3 = $('#op3').val();
+
+            var url = 'http://item74.ru/web-007.php?cmd=calc&op1=' + op1 + '&op2=' + op2 + '&act=' +
+                op3;
+
+            $.get(url, function (data) {
+                $('#res').val(data);
+            });
+
+        }
+
+        function graph() {
+
+            var tb = document.getElementById('graph');
+            var table = '<table border="1">'
+
+            $.getJSON('http://item74.ru/web-007.php?cmd=sin', function (data) {
+
+                for (var i in data) {
+                    table += '<tr>';
+                    table += '<td>';
+                    table += i;
+                    table += '</td>';
+
+                    table += '<td>';
+                    table += data[i];
+                    table += '</td>';
+
+                    table += '</tr>';
+
+                }
+
+                table += '</table>';
+
+                tb.innerHTML += table;
+            });
+        }
+
+        $(document).ready(function () {
+            $('#doit').click(doit);
+            $('#doit2').click(graph);
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <form>
+        <input type='text' id='op1'>
+        <input type='text' id='op2'>
+        <input type='text' id='op3'>
+        <input id="doit" type="button" value="Do It!" />
+        <input type="text" id='res'>
+
+        <input id="doit2" type="button" value="Graph" />
+    </form>
+
+    <div id='graph'></div>
+
+</body>
+
+</html>

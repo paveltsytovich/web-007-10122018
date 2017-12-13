@@ -1,0 +1,26 @@
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<div id="placeholder"></div>
+
+<script>
+var arg1=prompt("Enter 1 argument",0),
+    arg2=prompt("Enter 2 argument",0),
+    oper=prompt("Enter operation type (*,+,-)","+");
+var op  
+switch(oper){
+  case '+': op=1;
+    break
+  case '-': op=2;
+    break
+  case '*': op=3;
+    break
+  default : op=1;
+    break
+};
+        
+$.get("http://item74.ru/web-007.php?cmd=calc&op1="+arg1+"&op2="+arg2+"&act="+op,function(data) {
+   alert(data);
+});
+</script>
