@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Final Lab!</title>
+
+<script>
+  class Form {
+    constructor(placeholder,url){
+      this._placeholder=placeholder;
+      this._url=url;
+    }
+  get placeholder(){
+    alert(this._placeholder);
+  }
+  set placeholder(_placeholder){
+    this.placeholder=_placeholder;
+  }
+  
+}
+</script> 
+
+</head>
+<body>
+
+<div id="Placeholder"></div> 
+<div id="Result"></div> 
+
+<script> 
+var newForm=new Form("DivId","someshit");
+newForm.placeholder;
+/*form = new Form(“Placeholder”,http://item74.ru/web-007.php?cmd=calc”) 
+ var op1 = new Text(‘please input first operand’,‘op1’, function (text) { 
+   if(text.length < 3) 
+      return “you need input more symbols”; 
+   else “Ok”; 
+}); 
+form.add(op1); 
+var op2 = new Text(‘please input second operand‘,op2’, function (text) { 
+   if(text.length < 3) 
+      return “you need input more symbols”; 
+   else “Ok”; 
+}); 
+form.add(op2); 
+var post = new Submit(‘Calc It’, function (data) { 
+     $(“#Result”).append(“<b>”+data+”</data>”); 
+}); 
+form.add(post); */
+</script> 
+
+</body>
+</html>
