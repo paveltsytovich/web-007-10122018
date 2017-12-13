@@ -1,0 +1,16 @@
+<script>
+function* foo() {
+    yield 'a';
+    yield 'b';
+}
+function* bar() {
+    yield 'x';
+    yield* foo();
+    yield 'y';
+}
+
+// Collect all values yielded by bar() in an array
+let arr = [...bar()];
+// ['x', 'a', 'b', 'y']
+alert(arr);
+</script>
