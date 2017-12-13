@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>a.s.polyanskiy</title>
+</head>
+<body>
+<script>
+
+
+function func()
+{
+  document.write("<h1>!!!</h1>");
+  throw new Error("WTF");
+}
+
+try
+{
+  setTimeout(func,1000);
+  document.write("done");
+}
+catch(e)
+{
+  alert("catched!!!");
+}
+
+</script>
+</body>
+</html>
