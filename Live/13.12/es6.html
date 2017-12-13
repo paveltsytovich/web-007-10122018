@@ -1,0 +1,12 @@
+<script>
+
+function foo() {
+  return "x";
+}
+
+obj = {foo: "bar",
+  ["prop_"+foo()] : 42
+};
+
+alert(obj.foo + " " + obj.prop_x);
+</script>
