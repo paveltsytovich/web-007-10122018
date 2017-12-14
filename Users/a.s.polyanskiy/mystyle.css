@@ -1,0 +1,23 @@
+  body 
+    {
+	background-color : magenta;
+	color : white;
+	font-size : 15pt;	
+	}
+  p
+    {
+	font-size : 1cm;
+	background-color : lightgreen;
+	}
+  h1
+    {
+	font-size : 2cm;
+	}
+  .warn
+    {
+	background-color : brown;
+	}
+  .darn
+    {
+	background-color : blue;
+	}

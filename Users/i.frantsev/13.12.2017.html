@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        class Text {
+            constructor(text, id, validAction) {
+                this.text = text;
+                this.id = id;
+                this.validAction = validAction;
+            }
+        }
+
+        class Submit {
+            constructor(text, resultAction) {
+                this.text = text;
+                this.resultAction = resultAction;
+            }
+        }
+
+        class Form {
+            constructor(id, url) {
+
+                this.form = document.createElement('form')
+                this.url = url;
+                this.param = [];
+                document.getElementById(id).append(this.form);
+
+            }
+
+            add(obj) {
+                if (obj.constructor.name === 'Text') this.addInput(obj);
+                if (obj.constructor.name === 'Submit') this.addSubmit(obj);
+            }
+
+            addInput(obj) {
+                self = this;
+
+                var input = document.createElement('input');
+
+                input.id = obj.id;
+                input.placeholder = obj.text;
+
+                self.form.appendChild(input);
+
+                $('#' + obj.id).blur(function () {
+                    var mess = obj.validAction($('#' + obj.id).val());
+                });
+                self.param.push(obj.id);
+            }
+
+            addSubmit(obj) {
+                self = this;
+
+                var submit = document.createElement('input');
+
+                submit.type = 'submit';
+                submit.value = obj.text;
+
+                submit.onclick = function (e) {
+
+                    e.preventDefault();
+
+                    var url = self.url;
+
+                    self.param.forEach(element => {
+                        url += '&' + element + '=' + $('#' + element).val();
+                    });
+
+                    $.get(url, obj.resultAction);
+                };
+
+                self.form.appendChild(submit);
+            }
+
+        }
+
+
+
+        window.onload = function () {
+
+            form = new Form('Placeholder', 'http://item74.ru/web-007.php?cmd=calc&act=1');
+
+            var op1 = new Text('please input first operand', 'op1', function (text) {
+                if (text.length < 3)
+                    return 'you need input more symbols';
+                return 'Ok';
+            });
+
+            form.add(op1);
+
+            var op2 = new Text('please input second operand', 'op2', function (text) {
+                if (text.length < 3)
+                    return 'you need input more symbols';
+                return 'Ok';
+            });
+            form.add(op2);
+
+            var post = new Submit('Calc It', function (data) {
+                $('#Result').append('<b>' + data + '</b><br>');
+            });
+
+            form.add(post);
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id='Placeholder'></div>
+    <div id='Result'></div>
+</body>
+
+</html>

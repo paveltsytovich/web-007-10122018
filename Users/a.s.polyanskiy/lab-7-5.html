@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>title</title>
+</head>
+<body>
+<script>
+
+/*var a = {
+  secret : 0,
+  get gate(){return this.secret;},
+  set gate(val){ this.secret = val;}
+};
+
+a.secret = 4;
+alert(a.secret);
+alert(a.gate);
+a.gate=5;
+alert(a.gate);
+alert(a.secret);*/
+
+/*
+var vector = {
+  abs : 0,
+  ord : 0,
+  toString : function(){return "{" + this.abs + "," + this.ord + "}";},
+  //get vect(){return "{" + this.abs + "," + this.ord + "}";},
+  set vect(val1,val2){this.abs = val1; this.ord = val2;}
+};
+
+vector.vect(1,2);
+alert(vector);
+*/
+
+/*
+var o = {x:1,y:1,
+  toString : function()
+  {return "x="+this.x+" y="+this.y;}
+};
+
+alert(o);
+*/
+
+/*
+var str = '{"title":"sample","date":"2017-10-30"}';
+
+var event = JSON.parse(str,function(key,value)
+{
+  if (key == 'date')
+    return new Date(value);
+  else
+    return value;
+});
+
+alert(event.date.getDate());
+*/
+
+/*
+var event = { title : "lesson", date : "2017-10-30",
+	toJSON : function()
+	{return this.title;}
+	};
+var str = JSON.stringify(event);
+
+alert(str);
+*/
+
+/*
+var o = {title : "lesson", date : "2017-10-30"};
+var str = JSON.stringify(o,function(key,value){
+  if (key == 'date')
+    return undefined;
+  else return value;
+});
+alert(str);
+*/
+
+//Часть 1
+//var a = {};
+//alert(a.prop);
+//alert(fuck);
+
+//alert(Window.prop);
+//for (o in Window){alert(o)}
+
+
+//Часть 2
+/*
+obj = new  Object();
+obj.prop = 99;
+for (o in obj){alert(o)};
+
+if (obj.hasOwnProperty('prop')){alert("yeah")};
+delete obj.prop;
+if (!obj.hasOwnProperty('prop')){alert("nope")};
+for (o in obj){alert(o)};
+*/
+
+//Часть 3
+
+//a = new Array({"attr1":"text1","attr2":"text2"}, {"attr1":"text3","attr2":"text4"});
+// Создает "матрицу" 2х2 с текстовыми полями. По сути это вектор, состоящий из двух векторов с одинаковыми свойствами
+
+//Часть 4
+/*
+var a = [];
+a[1]=1;
+a[999999]=2;
+alert(a.length);
+
+var b = [1,2,3];
+alert(b);
+b[b.length] = 4;
+alert(b);
+
+alert(b.pop());
+
+b.length = 0;
+alert(b);
+*/
+
+var arr = [];
+arr[1] = 123;
+arr[999] = 456;
+alert(arr.join(""));
+
+for (o in arr){
+  if (arr.hasOwnProperty(o)){alert(arr[o]);};
+}
+;
+
+
+</script>
+</body>
+</html>

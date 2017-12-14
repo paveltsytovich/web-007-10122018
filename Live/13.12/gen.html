@@ -1,0 +1,17 @@
+<script>
+function* genFunc() {
+        yield 'a';
+        yield 'b';
+        return 1;
+    }
+genObj = genFunc();
+genObj.next() // {value: "a", done: false}
+genObj.next() // {value: "b", done: false}
+genObj.next() //  {value: 1, done: true}
+for(var i of genFunc())
+ alert(i);
+alert(i);
+arr = [...genFunc()]; // ['a', 'b'] 
+//alert(genObj.value);
+//alert(arr);
+</script>

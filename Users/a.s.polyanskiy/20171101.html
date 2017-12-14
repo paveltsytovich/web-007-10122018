@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>a.s.polyanskiy</title>
+</head>
+<body>
+<script>
+
+function MakeIt(x)
+{
+  if(x<=0)
+    throw new Error("Negative argument");
+  return x+2;
+}
+function f()
+{
+  var x = MakeIt(-5);
+  alert("f complete");
+  return x;
+}
+function f1()
+{
+  try
+  {
+    var x = MakeIt(-5);
+	return x;
+  }
+  catch(e)
+  {
+    alert("Gotta catch 'em all!");
+  }
+  finally
+  {
+    alert("good job, m8");
+  }
+}
+try
+{
+  alert(MakeIt(2));
+  alert(f1());
+}
+
+/*
+try
+{
+  throw new Error("because fuck you");
+  alert("Ok");
+}
+*/
+catch(e)
+{
+  if (e.name == "ReferenceError")
+    alert("Unknown Variable");
+  else 
+    alert(e.name + " because " + e.message);
+}
+</script>
+</body>
+</html>

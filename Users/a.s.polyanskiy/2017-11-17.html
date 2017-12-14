@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>a.s.polyanskiy</title>
+</head>
+<body>
+<div id = "Placeholder"></div>
+<button onclick = "addParagraph();">Add paragraph</button>
+<button onclick = "addScript();">Add script</button>
+<script>
+var CountParagraph = 0;
+function addParagraph()
+{
+  var placeholder = document.getElementById("Placeholder");
+  var newElement = document.createElement("p");
+  newElement.style.color = "black";
+  newElement.style.backgroundColor = "yellow";
+  newElement.innerHTML = ++CountParagraph;
+  placeholder.appendChild(newElement);
+}
+function addScript()
+{
+  var placeholder = document.getElementById("Placeholder");
+  var newElement = document.createElement("script");
+  newElement.innerHTML = "alert('!!!');";
+  placeholder.appendChild(newElement);
+}
+
+</script>
+
+</body>
+</html>
