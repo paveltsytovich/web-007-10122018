@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        class Form {
+            constructor(obj, address) {
+                this.form = document.createElement('form')
+                this.obj = obj;
+                this.address = address;
+            }
+
+            add(op) {
+                this.form.appendChild(op.render());
+            }
+
+            render() {
+                document.getElementById(this.obj).append(this.form);
+            }
+
+        }
+
+        class Text {
+            constructor(text, id, action) {
+                this.text = text;
+                this.id = id;
+                this.action = action;
+            }
+
+            render() {
+                var input = document.createElement('input');
+                input.id = this.id;
+                input.placeholder = this.text;
+
+                return input;
+
+            }
+        }
+
+        class Submit {
+            constructor(text, action) {
+                this.text = text;
+                this.action = action;
+            }
+
+            render() {
+                var submit = document.createElement('input');
+                submit.type = 'submit';
+                return submit;
+
+            }
+        }
+
+        window.onload = function () {
+
+            form = new Form('Placeholder', 'http://item74.ru/web-007.php?cmd=calc&act=1');
+
+            var op1 = new Text('please input first operand', 'op1', function (text) {
+                if (text.length < 3)
+                    return 'you need input more symbols';
+                else 'Ok';
+            });
+
+            form.add(op1);
+
+            var op2 = new Text('please input second operand', 'op2', function (text) {
+                if (text.length < 3)
+                    return 'you need input more symbols';
+                else 'Ok';
+            });
+            form.add(op2);
+
+            var post = new Submit('Calc It', function (data) {
+                $('#Result').append('<b>' + data + '</b');
+            });
+
+            form.add(post);
+
+            form.render();
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id='Placeholder'></div>
+    <div id='Result'></div>
+</body>
+
+</html>
