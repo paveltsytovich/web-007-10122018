@@ -46,7 +46,6 @@
 
                 $('#' + obj.id).blur(function () {
                     var mess = obj.validAction($('#' + obj.id).val());
-                    if (mess !== 'Ok') alert(mess);
                 });
                 self.param.push(obj.id);
             }
