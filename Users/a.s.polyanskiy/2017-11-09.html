@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>a.s.polyanskiy</title>
+</head>
+<body>
+<script>
+/*
+myCard = {Owner: "Test", Amount: 100};
+myPremiumCard = {CashBack: 10};
+myPremiumCard.__proto__ = myCard;
+
+alert(myPremiumCard.Owner);*/
+
+
+function Card(pin,amount,owner)
+{
+  this.pin = pin;
+  this.amount = amount;
+  this.owner = owner;
+  this.Auth = false;
+  this.bonus = 10;
+}
+
+//var myCard = new Card();
+
+Card.prototype.Authorize = function(pin)
+{
+  if (this.pin != pin)
+    throw new Error("Wrong pin");
+  this.Auth = true;
+}
+
+Card.prototype.PutMoney = function(amount)
+{
+  if (!this.Auth)
+    throw new Error("Please, authorize");
+  this.amount += amount;
+}
+
+var myCard = new Card(1234,100,"Me");
+myCard.Authorize(1234);
+myCard.PutMoney(20);
+
+for(x in myCard)
+{
+  document.write(x + " ");
+}
+
+Object.defineProperty(myCard,"Auth",{enumerable : false});
+Object.defineProperty(myCard,"amount",{enumerable : false, visible : false, writable : false});
+Object.defineProperty(myCard,"bonus",{value : 10, writable : false, configurable : false});
+
+document.write("<br/>");
+
+for(x in myCard)
+{
+  document.write(x + " ");
+}
+
+myCard.bonus = 100;
+
+alert(myCard.amount);
+
+</script>
+</body>
+</html>

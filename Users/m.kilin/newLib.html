@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <script type="text/javascript" src="jquery-3.2.1.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="FormLib.js"></script>
+        <style>
+            .line {
+               display: inline;
+            }
+            .comment {
+                color: red
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="Placeholder"></div>       
+        <div id="Result"></div>
+    </body>
+    <script>
+    form = new Form("Placeholder", "http://item74.ru/web-007.php?cmd=calc");
+    var op1 = new Text("please input first operand", "op1", function (text) {
+        if (text.length < 3)
+            return "you need input more symbols";
+        else 
+            return "Ok";
+        });
+    form.add(op1);
+    var op2 = new Text("please input second operand", "op2", function (text) {
+        if (text.length < 3)
+            return "you need input more symbols";
+        else 
+            return "Ok";
+    });
+    form.add(op2);
+    var post = new Submit("Calc It", function (data) {
+        $("#Result").append("<b>"+data+"</br>");
+    });
+    form.add(post);
+    </script>
+</html>

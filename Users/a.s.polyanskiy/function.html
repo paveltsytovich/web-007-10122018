@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>a.s.polyanskiy</title>
+</head>
+<body>
+<script>
+
+function sum()
+{
+  var s = 0;
+  for(var i = 0; i < arguments.length; i++)
+  s += arguments[i];
+  return s;
+}
+
+document.write(sum());
+document.write("<br/>");
+
+document.write(sum(1,2));
+document.write("<br/>");
+
+document.write(sum(1,2,3,4,5));
+document.write("<br/>");
+
+</script>
+</body>
+</html>

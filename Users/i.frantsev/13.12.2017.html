@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        class Text {
+            constructor(text, id, validAction) {
+                this.text = text;
+                this.id = id;
+                this.validAction = validAction;
+            }
+        }
+
+        class Submit {
+            constructor(text, resultAction) {
+                this.text = text;
+                this.resultAction = resultAction;
+            }
+        }
+
+        class Form {
+            constructor(id, url) {
+
+                this.form = document.createElement('form')
+                this.url = url;
+                this.param = [];
+                $('#'+id).append(this.form);
+
+            }
+
+            add(obj) {
+                if (obj.constructor.name === 'Text') this.addInput(obj);
+                if (obj.constructor.name === 'Submit') this.addSubmit(obj);
+            }
+
+            addInput(obj) {
+                self = this;
+                var div = document.createElement('div');
+                div.className = 'form-group';
+
+                var input = document.createElement('input');
+
+                input.id = obj.id;
+                input.className = 'form-control';
+
+                var label = document.createElement('label');
+                label.innerHTML = obj.text;
+
+                var paragraph = document.createElement('p');
+                paragraph.className = 'bg-warning';
+                paragraph.id = obj.id + '-p';
+                paragraph.style.display = 'none';
+
+                div.appendChild(label);
+                div.appendChild(input);
+                div.appendChild(paragraph);
+
+                self.form.appendChild(div);
+
+                $('#' + obj.id).blur(function () {
+                    var mess = obj.validAction($('#' + obj.id).val());
+                    if (mess) {
+                        $('#' + obj.id + '-p').show();
+                        $('#' + obj.id + '-p').html(mess);
+                    } else {
+                        $('#' + obj.id + '-p').hide();
+                        $('#' + obj.id + '-p').html(mess);
+                    }
+                });
+                self.param.push(obj.id);
+            }
+
+            addSubmit(obj) {
+                self = this;
+
+                var submit = document.createElement('input');
+
+                submit.type = 'submit';
+                submit.value = obj.text;
+                submit.className = 'btn btn-primary';
+
+                submit.onclick = function (e) {
+
+                    e.preventDefault();
+
+                    var url = self.url;
+
+                    self.param.forEach(element => {
+                        url += '&' + element + '=' + $('#' + element).val();
+                    });
+
+                    $.get(url, obj.resultAction);
+                };
+
+                self.form.appendChild(submit);
+            }
+
+        }
+
+
+
+        window.onload = function () {
+
+            form = new Form('Placeholder', 'http://item74.ru/web-007.php?cmd=calc&act=1');
+
+            var op1 = new Text('please input first operand', 'op1', function (text) {
+                if (text.length < 3)
+                    return 'you need input more symbols';
+                else 'Ok';
+            });
+
+            form.add(op1);
+
+            var op2 = new Text('please input second operand', 'op2', function (text) {
+                if (text.length < 3)
+                    return 'you need input more symbols';
+                else 'Ok';
+            });
+            form.add(op2);
+
+            var post = new Submit('Calc It', function (data) {
+                $('#Result').append('<b>' + data + '</b><br>');
+            });
+
+            form.add(post);
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div id='Placeholder'></div>
+        <div id='Result'></div>
+    </div>
+</body>
+
+</html>
