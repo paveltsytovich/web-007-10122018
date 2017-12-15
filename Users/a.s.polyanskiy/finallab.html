@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -25,9 +25,9 @@
         this.paragraph.id = id + 1;
         $('#' + id + 1).hide();
 
-      this.div.appendChild(this.label);
-      this.div.appendChild(this.jinput);
-      this.div.appendChild(this.paragraph);
+      this.div.appendChildChild(this.label);
+      this.div.appendChildChild(this.jinput);
+      this.div.appendChildChild(this.paragraph);
 
       this.para = $(this.paragraph);
 
@@ -40,7 +40,7 @@
       })
     }
     render(where){
-      document.getElementById(where).append(this.div);
+      document.getElementById(where).appendChild(this.div);
     }
   }
 
@@ -62,7 +62,7 @@
 
     }
     render(where){
-      document.getElementById(where).append(this.button);
+      document.getElementById(where).appendChild(this.button);
     }
   }
   class Form{
@@ -71,7 +71,7 @@
       this.form.url = url;
       this.form.id = 'foorm';
       this.form2 = $(this.form);
-      document.getElementById(id).append(this.form);
+      document.getElementById(id).appendChild(this.form);
     }
     add(smth){
       smth.owner = this.url;
@@ -97,7 +97,7 @@
   });
   form.add(op2);
   var post = new Submit('Calc It', function (data) {
-       $("#Result").append("<b>"+data+"</b>");
+       $("#Result").appendChild("<b>"+data+"</b>");
   });
   form.add(post);
   </script>
