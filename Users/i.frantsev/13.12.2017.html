@@ -28,7 +28,7 @@
                 this.form = document.createElement('form')
                 this.url = url;
                 this.param = [];
-                $('#'+id).append(this.form);
+                document.getElementById(id).append(this.form);
 
             }
 
@@ -46,6 +46,18 @@
 
                 input.id = obj.id;
                 input.className = 'form-control';
+                input.onblur = function () {
+
+                    var mess = obj.validAction(this.value);
+
+                    if (mess) {
+                        $('#' + obj.id + '-p').show();
+                        $('#' + obj.id + '-p').html(mess);
+                    } else {
+                        $('#' + obj.id + '-p').hide();
+                        $('#' + obj.id + '-p').html(mess);
+                    }
+                };
 
                 var label = document.createElement('label');
                 label.innerHTML = obj.text;
@@ -61,16 +73,6 @@
 
                 self.form.appendChild(div);
 
-                $('#' + obj.id).blur(function () {
-                    var mess = obj.validAction($('#' + obj.id).val());
-                    if (mess) {
-                        $('#' + obj.id + '-p').show();
-                        $('#' + obj.id + '-p').html(mess);
-                    } else {
-                        $('#' + obj.id + '-p').hide();
-                        $('#' + obj.id + '-p').html(mess);
-                    }
-                });
                 self.param.push(obj.id);
             }
 
@@ -100,8 +102,6 @@
             }
 
         }
-
-
 
         window.onload = function () {
 
