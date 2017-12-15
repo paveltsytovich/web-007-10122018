@@ -46,16 +46,17 @@
 
                 input.id = obj.id;
                 input.className = 'form-control';
-                input.onblur = function () {
+                input.onblur = function (e) {
 
                     var mess = obj.validAction(this.value);
+                    var p = document.getElementById(obj.id + '-p');
 
                     if (mess) {
-                        $('#' + obj.id + '-p').show();
-                        $('#' + obj.id + '-p').html(mess);
+                        p.style.display = 'block';
+                        p.innerHTML = mess;
                     } else {
-                        $('#' + obj.id + '-p').hide();
-                        $('#' + obj.id + '-p').html(mess);
+                        p.style.display = 'none';
+                        p.innerHTML = mess;
                     }
                 };
 
@@ -92,7 +93,7 @@
                     var url = self.url;
 
                     self.param.forEach(element => {
-                        url += '&' + element + '=' + $('#' + element).val();
+                        url += '&' + element + '=' + document.getElementById(element).value;
                     });
 
                     $.get(url, obj.resultAction);
