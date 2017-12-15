@@ -1,0 +1,118 @@
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<div id="PlaceHolder"></div>
+<div id="Result"></div>
+
+<script>
+
+  function Form(holder, submitAddress)
+  {
+    var _form = $("<form></form>");
+    _form.append($("<p>Calculator</p>"));
+
+    var _address = submitAddress;
+
+    $("#" + holder).append(_form);
+
+
+    this.add = function(element)
+    {
+      element.assignForm(this);
+      _form.append(element.getItem());
+    }
+
+    this.getFormObject = function()
+    {
+      return _form;
+    }
+
+    this.getAddress = function()
+    {
+      return _address;
+    }
+  }
+
+  function Text(caption, operandName, validatorFunc)
+  {
+    var _validateFunc = validatorFunc;
+    var _item = $("<div></div>");
+    var _itemInput = $('<input/>').attr({ type: 'text', name: operandName});
+    var _itemHint = $('<span> </span>');
+    _item.append($('<label>' + caption + '</label>'));
+    _item.append($('<span> </span>'));
+    _item.append(_itemInput);
+    _item.append(_itemHint);
+
+
+    this.onBlur = function()
+    {
+      var validateResult = _validateFunc(_itemInput.val());
+      if(validateResult == "Ok")
+        validateResult = "";
+      _itemHint.html(validateResult);
+    }
+
+    this.getItem = function()
+    {
+      return _item;
+    }
+
+    this.assignForm = function(form)
+    {
+        _itemInput.blur(this.onBlur);
+    }
+  }
+
+  function Submit(caption, answerFunc)
+  {
+    var _item = $('<input/>').attr({ type: 'button', value: caption})
+    var _answerFunc = answerFunc;
+
+
+    this.getItem = function()
+    {
+      return _item;
+    }
+
+    this.assignForm = function(form)
+    {
+      _item.click(function() {
+        var args = form.getFormObject().serialize();
+        $.get(form.getAddress() + args, _answerFunc);
+       })
+    }
+  }
+
+</script>
+
+
+<script>
+
+  form = new Form("PlaceHolder", "http://item74.ru/web-007.php?cmd=calc&act=1&");
+
+  var op1 = new Text('please input first operand','op1',
+    function (text)
+    {
+      if(text.length < 3) return "you need input more symbols";
+      else return "Ok";
+    });
+  form.add(op1);
+
+  var op2 = new Text('please input second operand','op2',
+    function (text)
+    {
+      if(text.length < 3) return "you need input more symbols";
+      else return "Ok";
+    });
+  form.add(op2);
+
+  var post = new Submit('Calc It', function (data)
+    {
+      $("#Result").append("<b>"+data+"</b><br>");
+    });
+  form.add(post);
+
+</script>
