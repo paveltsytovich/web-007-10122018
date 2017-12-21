@@ -2,20 +2,96 @@
 <head>
 <title>Final Lab!</title>
 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+</script>
+  
 <script>
-  class Form {
-    constructor(placeholder,url){
-      this._placeholder=placeholder;
-      this._url=url;
+class Form{
+  constructor(placeholder,url){
+    this.placeholder=placeholder;
+    this.url=url;
+    this.form=this.createForm(this.placeholder,this.url);
+    this.form.onsubmit=function(event){
+      event.preventDefault();
+      let operands="";
+      let func;
+      for (let i=0;i<this.elementsss.length;i++){
+        if(this.elementsss[i].type=="Text"){
+          operands+="&"+this.elementsss[i].operator+"="+this.elementsss[i].input.input.value;
+        }
+        else if(this.elementsss[i].type=="Submit"){
+          func=this.elementsss[i].func;
+        };
+      };
+      $.get(this.action+operands, func);
     }
-  get placeholder(){
-    alert(this._placeholder);
-  }
-  set placeholder(_placeholder){
-    this.placeholder=_placeholder;
   }
   
+  createForm(pl,u){
+    let form = document.createElement('form');
+    form.name="Formotchka";
+    form.action=u;
+    form.id="myForm";
+    form.elementsss=[];
+    let place=document.getElementById(pl);
+    place.appendChild(form);
+    return form;
+  }
+  
+  add(element){
+    this.form.appendChild(element.element);
+    this.form.elementsss.push(element);
+  }
 }
+
+class Input{
+  constructor(placeholder,func,alertDiv){
+    this.input=document.createElement('input');
+    this.input.type="text";
+    this.input.placeholder=placeholder;
+    this.input.func=func;
+    this.input.alertDiv=alertDiv;
+    this.input.onblur=function(){
+      let result=this.func(this.value);
+      if (result != "Ok")
+        this.alertDiv.innerHTML=result;
+      else this.alertDiv.innerHTML="Ok";
+    }
+  }
+}
+
+class Text{
+  constructor(headtext,operator,func){
+    this.type="Text";
+    this.element=document.createElement('div');
+    this.head=document.createElement('h3');
+      this.head.innerHTML=headtext;
+      this.element.appendChild(this.head);
+    this.alertDiv=document.createElement('g');
+      this.element.appendChild(this.alertDiv);
+    this.input=new Input(headtext,func,this.alertDiv);
+      this.element.insertBefore(this.input.input,this.alertDiv);
+    this.operator=operator;
+  }
+}
+
+class Submit{
+  constructor(headtext,func){
+    this.type="Submit";
+    this.element=document.createElement('div');
+    this.head=document.createElement('h3');
+      this.head.innerHTML=headtext;
+      this.element.appendChild(this.head);
+    this.input=document.createElement('input');
+    this.input.type="submit";
+    this.input.value="Submit!"
+      this.element.appendChild(this.input);
+    this.func=func;
+  }
+}
+
 </script> 
 
 </head>
@@ -25,25 +101,23 @@
 <div id="Result"></div> 
 
 <script> 
-var newForm=new Form("DivId","someshit");
-newForm.placeholder;
-/*form = new Form(“Placeholder”,http://item74.ru/web-007.php?cmd=calc”) 
- var op1 = new Text(‘please input first operand’,‘op1’, function (text) { 
+var form=new Form("Placeholder","http://item74.ru/web-007.php?cmd=calc&act=1");
+var op1=new Text("please input first operand","op1",function (text) { 
    if(text.length < 3) 
-      return “you need input more symbols”; 
-   else “Ok”; 
-}); 
-form.add(op1); 
-var op2 = new Text(‘please input second operand‘,op2’, function (text) { 
+      return "you need input more symbols"; 
+   else return "Ok"; 
+});
+form.add(op1);
+var op2=new Text("please input second operand","op2",function (text) { 
    if(text.length < 3) 
-      return “you need input more symbols”; 
-   else “Ok”; 
-}); 
-form.add(op2); 
-var post = new Submit(‘Calc It’, function (data) { 
-     $(“#Result”).append(“<b>”+data+”</data>”); 
-}); 
-form.add(post); */
+      return "you need input more symbols"; 
+   else return "Ok";  
+});
+form.add(op2);
+var post = new Submit("Calc It", function (data) { 
+     $("#Result").append("<b>"+data+"</data><br>"); 
+});
+form.add(post);
 </script> 
 
 </body>
