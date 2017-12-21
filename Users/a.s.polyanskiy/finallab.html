@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+  <div id="Placeholder"></div>
+  <div id="Result"></div>
+
+  <script>
+  class Text {
+    constructor(text,id,func){
+      this.div = document.createElement('div');
+      this.label = document.createElement('label');
+        this.label.innerHTML = text;
+      this.jinput = document.createElement('input');
+        this.input = $(this.jinput);
+        this.jinput.id = id;
+      this.paragraph = document.createElement('paragraph');
+        this.paragraph.id = id + 1;
+        $('#' + id + 1).hide();
+
+      this.div.appendChildChild(this.label);
+      this.div.appendChildChild(this.jinput);
+      this.div.appendChildChild(this.paragraph);
+
+      this.para = $(this.paragraph);
+
+      this.input.blur(function(){
+        var val = $('#' + id).val();
+        var par = $('#' + id + 1);
+        var isok = func(val);
+        if(isok!="Ok"){par.show();par.html(isok);}
+        else{par.html(isok);}
+      })
+    }
+    render(where){
+      document.getElementById(where).appendChild(this.div);
+    }
+  }
+
+  class Submit {
+    constructor(text, func) {
+      this.owner;
+      self = this;
+      this.param = [];
+      this.button = document.createElement('input');
+        this.button.type = 'submit';
+        this.button.value = text;
+        this.but = $(this.button);
+
+
+        this.button.onclick = function(event){
+          event.preventDefault();
+          $.get(self.owner, $('#'+'foorm').serialize(),func());
+        }
+
+    }
+    render(where){
+      document.getElementById(where).appendChild(this.button);
+    }
+  }
+  class Form{
+    constructor(id, url) {
+      this.form = document.createElement('form');
+      this.form.url = url;
+      this.form.id = 'foorm';
+      this.form2 = $(this.form);
+      document.getElementById(id).appendChild(this.form);
+    }
+    add(smth){
+      smth.owner = this.url;
+      smth.render('foorm');
+    }
+
+  }
+
+  </script>
+
+  <script>
+  form = new Form("Placeholder","http://item74.ru/web-007.php?cmd=calc?act=1")
+   var op1 = new Text('please input first operand','op1', function (text) {
+     if(text.length < 3)
+        return "you need input more symbols";
+     else return "Ok";
+  });
+  form.add(op1);
+  var op2 = new Text('please input second operand','op2', function (text) {
+     if(text.length < 3)
+        return "you need input more symbols";
+     else "Ok";
+  });
+  form.add(op2);
+  var post = new Submit('Calc It', function (data) {
+       $("#Result").appendChild("<b>"+data+"</b>");
+  });
+  form.add(post);
+  </script>
+</body>

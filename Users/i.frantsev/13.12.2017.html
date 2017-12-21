@@ -28,7 +28,7 @@
                 this.form = document.createElement('form')
                 this.url = url;
                 this.param = [];
-                $('#'+id).append(this.form);
+                document.getElementById(id).appendChild(this.form);
 
             }
 
@@ -46,6 +46,19 @@
 
                 input.id = obj.id;
                 input.className = 'form-control';
+                input.onblur = function (e) {
+
+                    var mess = obj.validAction(this.value);
+                    var p = document.getElementById(obj.id + '-p');
+
+                    if (mess) {
+                        p.style.display = 'block';
+                        p.innerHTML = mess;
+                    } else {
+                        p.style.display = 'none';
+                        p.innerHTML = mess;
+                    }
+                };
 
                 var label = document.createElement('label');
                 label.innerHTML = obj.text;
@@ -61,16 +74,6 @@
 
                 self.form.appendChild(div);
 
-                $('#' + obj.id).blur(function () {
-                    var mess = obj.validAction($('#' + obj.id).val());
-                    if (mess) {
-                        $('#' + obj.id + '-p').show();
-                        $('#' + obj.id + '-p').html(mess);
-                    } else {
-                        $('#' + obj.id + '-p').hide();
-                        $('#' + obj.id + '-p').html(mess);
-                    }
-                });
                 self.param.push(obj.id);
             }
 
@@ -90,7 +93,7 @@
                     var url = self.url;
 
                     self.param.forEach(element => {
-                        url += '&' + element + '=' + $('#' + element).val();
+                        url += '&' + element + '=' + document.getElementById(element).value;
                     });
 
                     $.get(url, obj.resultAction);
@@ -100,8 +103,6 @@
             }
 
         }
-
-
 
         window.onload = function () {
 
